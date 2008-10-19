@@ -1,0 +1,30 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+     version="1.0">
+
+    <!-- Non-JTA local data source to access the landmine core database  -->
+
+  <persistence-unit name="NonUSElectionDB">
+    <description>The Non-US Presidential Election database</description>
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+    <mapping-file>META-INF/queries_vote.xml</mapping-file>
+
+    <class>com.blueskyminds.nonuselection.model.Vote</class>
+    <class>com.blueskyminds.nonuselection.model.VoteResult</class>
+
+    <properties>
+       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+
+       <property name="hibernate.show_sql" value="true"/>
+
+       <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+       <property name="hibernate.connection.username" value="nonuselection"/>
+       <property name="hibernate.connection.password" value="md5f6986ff2fffa31a3da873ebd72aef8459a4c6"/>
+       <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/nonuselection"/>
+    </properties>
+
+  </persistence-unit>
+
+</persistence>

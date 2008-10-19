@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    <init-param>
+      <param-name>actionPackages</param-name>
+      <param-value>com.blueskyminds.nonuselection.web.actions</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+  <listener>
+    <listener-class>com.blueskyminds.nonuselection.startup.LoggingInitializer</listener-class>
+  </listener>
+
+  <security-constraint>
+    <display-name>Non-US Election Administration</display-name>
+    <web-resource-collection>
+      <web-resource-name>Services</web-resource-name>
+      <url-pattern>/services/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>authAdmin</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Non-US Election Administration</realm-name>
+  </login-config>
+
+  <security-role>
+    <role-name>authAdmin</role-name>
+  </security-role>
+</web-app>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-mappings
+    xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_1_0.xsd"
+    version="1.0">
+
+  <!--
+    Parameters:
+      country
+     -->
+    <named-query name="voteResult.byCountry">
+        <query>
+          select voteResult from VoteResult voteResult where voteResult.country = :country
+        </query>
+    </named-query>   
+
+    <!--
+     Increment the democratic result
+
+    Parameters:      
+     -->
+    <named-query name="voteResult.incDemocratic">
+        <query>
+          update VoteResult voteResult set voteResult.democratic = (voteResult.democratic+1), voteResult.timestamp=CURRENT_TIMESTAMP() where voteResult.country = :country
+        </query>
+    </named-query>
+
+   <!--
+     Increment the republican result
+
+    Parameters:
+     -->
+    <named-query name="voteResult.incRepublican">
+        <query>
+          update VoteResult voteResult set voteResult.republican = (voteResult.republican+1), voteResult.timestamp=CURRENT_TIMESTAMP() where voteResult.country = :country
+        </query>
+    </named-query>
+
+   <!--
+    Parameters:
+      country
+     -->
+    <named-query name="vote.byCountry">
+        <query>
+          select vote from Vote vote where vote.country = :country
+        </query>
+    </named-query>
+
+</entity-mappings>

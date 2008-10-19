@@ -1,0 +1,2 @@
+-- This table is required by the SchemaMigrator.  It will be created automatically if the SchemaMigrator is used.  If you create the tables manually and want the SchemaMigrator to resume from that point must run this script
+CREATE TABLE SchemaRevision (     revNo integer NOT NULL,     schemaName varchar(64) NOT NULL,     dateStamp TIMESTAMP DEFAULT current_timestamp,     primary key (revNo, schemaName) );

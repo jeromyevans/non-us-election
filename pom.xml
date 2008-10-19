@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.blueskyminds.fun</groupId>
+  <artifactId>nonuseelection</artifactId>
+  <packaging>war</packaging>
+  <version>0.1-SNAPSHOT</version>
+  <name>Non-US election project</name>
+  <url>http://www.blueskyminds.com.au</url>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>ddl</id>
+            <phase>process-classes</phase>
+            <configuration>
+              <tasks>
+                <!--
+                An ant script to generate the DDL to migrate the current schema to the expected schema
+                Uses the SchemaMigrator application in the classpath
+                -->
+                <path id="ddl.classpath">
+                  <path refid="maven.compile.classpath"/>
+                  <path refid="maven.plugin.classpath"/>
+                </path>
+
+                <java classname="com.blueskyminds.homebyfive.framework.core.persistence.schema.SchemaMigrationGenerator"
+                      classpathref="ddl.classpath" fork="true" failonerror="true">
+                  <arg value="NonUSElectionDB"/>
+                  <arg value="nonuselection"/>
+                  <arg value="src/main/resources/schema"/>
+                </java>
+              </tasks>
+              <sourceRoot>
+                ${project.build.directory}/generated-sources/main/java
+              </sourceRoot>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>com.blueskyminds.homebyfive.business</groupId>
+            <artifactId>business-core</artifactId>
+            <version>0.1-SNAPSHOT</version>
+          </dependency>
+          <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.7</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+    <defaultGoal>install</defaultGoal>
+  </build>
+
+  <dependencies>
+
+    <dependency>
+       <groupId>javax.servlet</groupId>
+       <artifactId>servlet-api</artifactId>
+       <version>2.4</version>
+       <scope>provided</scope>
+     </dependency>
+
+
+    <dependency>
+      <groupId>com.blueskyminds.homebyfive.web</groupId>
+      <artifactId>web-core</artifactId>
+      <version>${pom.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.blueskyminds.homebyfive.framework</groupId>
+      <artifactId>framework-guice</artifactId>
+      <version>${pom.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.14</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>warp-persist</groupId>
+      <artifactId>warp-persist</artifactId>
+      <version>1.0</version>
+      <scope>compile</scope>
+    </dependency>
+
+  </dependencies>
+
+</project>
