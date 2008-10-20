@@ -1,15 +1,82 @@
+body {
+  color: #333;
+}
+
+h1 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 16pt;
+  text-align: center;
+}
+
+p.intro {
+  text-align: center;
+  font-size: 11pt;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+h2.country {
+  height: 3em;
+}
+
+#another {
+  margin-top: 0.5em;
+  height: 2em;
+}
+
+a, a:visited {
+  color: #0088cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#ft div.right {
+  float: right;
+  margin-left: 2em;
+  font-size: 8pt;
+}
+
+div#errors {
+  background-color: pink;
+}
+
+div#results {
+  min-height: 18em;
+}
+
+div.formitem {
+  line-height: 2em;
+}
+
 div.result {
   border: 1px solid #cccccc;
   margin: 1em;
-* height : 12 em;
-  min-height: 12em;
+  height: 14em;
+  padding: 0 0 1em 1em;
   width: 9em;
-  padding: 1em;
+  float: left;
+}
+
+div.buttons {
+  float: right;
+  height: 16px;
 }
 
 div.bar {
   width: 4em;
   float: left;
+  text-align: center;
+
+}
+
+div.result h2 {
+  margin-top: 16px;
+  margin-bottom: 5px;
+  font-weight: bold;
   text-align: center;
 }
 
@@ -27,4 +94,27 @@ div.republican div.filled {
 
 div.democratic div.filled {
   background-color: blue;
+}
+
+div.republican div.empty {
+  background-color: #ffe3e3;
+}
+
+div.democratic div.empty {
+  background-color: #e3e3ff;
+}
+
+#voteTemplate {
+  background-color: #f0f0f0;
+  border: 1px solid #cccccc;
+  padding: 1em;
+}
+
+#voteTemplate h2 {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+#voteTemplate input {
+  margin-right: 0.5em;
 }

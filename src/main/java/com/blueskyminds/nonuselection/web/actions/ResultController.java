@@ -13,7 +13,7 @@ import java.util.Date;
 
 /**
  * Get the current result for a country
- *
+ * <p/>
  * Date Started: 19/10/2008
  * <p/>
  * Copyright (c) 2008 Blue Sky Minds Pty Ltd
@@ -23,6 +23,10 @@ public class ResultController extends ActionSupport implements ModelDriven<VoteS
     private VoteService voteService;
     private String id;
     private VoteSummary model;
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public HttpHeaders index() {
         id = "all";
