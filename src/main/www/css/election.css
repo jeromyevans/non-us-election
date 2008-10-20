@@ -1,0 +1,30 @@
+div.result {
+  border: 1px solid #cccccc;
+  margin: 1em;
+* height : 12 em;
+  min-height: 12em;
+  width: 9em;
+  padding: 1em;
+}
+
+div.bar {
+  width: 4em;
+  float: left;
+  text-align: center;
+}
+
+div.filled {
+  color: white;
+}
+
+div.empty {
+  color: black;
+}
+
+div.republican div.filled {
+  background-color: red;
+}
+
+div.democratic div.filled {
+  background-color: blue;
+}
