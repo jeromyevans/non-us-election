@@ -2,7 +2,6 @@
 <html><!-- InstanceBegin template="/Templates/defaultPage.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
   <!-- InstanceBeginEditable name="doctitle" -->
-  <title>The US Presidential Election Poll for non-US citizens</title>
   <!-- InstanceEndEditable -->
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
   <meta name="Keywords" content="US Election">
@@ -12,7 +11,7 @@
   <meta name="Copyright" content="Blue Sky Minds Pty Ltd"/>
 
   <link type="text/css" rel="stylesheet"
-        href="http://yui.yahooapis.com/2.5.1/build/reset-fonts-grids/reset-fonts-grids.css">
+        href="http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css">
   <link type="text/css" rel="stylesheet" href="/css/election.css">
   <script type="text/javascript"></script>
 </head>
@@ -24,10 +23,10 @@
 </div>
 <div id="bd">
 <!-- InstanceBeginEditable name="bd" -->
-<h1>US Presidential Election Poll for non-US citizens</h1>
+<h1>US Presidential Election Poll for the rest of the world</h1>
 
-<p class="intro">We can't avoid hearing about the 2008 US Elections. The outcome will likely affect us. We have no
-  influence, but let's voice our opinion anyway.</p>
+<p class="intro">We can't avoid hearing about the 2008 US Elections. The outcome will probably affect us all. We have no
+  influence but we can express an opinion.</p>
 
 <div id="another" class="commands">
 <form id="resultForm" action="result.xhtml">
@@ -280,45 +279,70 @@
 <option value="zm">Zambia</option>
 <option value="zw">Zimbabwe</option>
 </select>
-<input id="resultSubmit" type="submit" name="_submit" value="Show More Results"/>
+<input id="resultSubmit" type="submit" name="_submit" value="Show another result"/>
 </form>
 </div>
 <div id="results" class="commands">
 </div>
 <div id="resultTemplate" class="result bsm-closeable" style="display:none">
   <div class="commands buttons">
-    <a class="command bsm-close-parent" href="/index.html" title="Close this result"><img class="bsm-close-parent"
-                                                                                          src="images/close_16.png"
-                                                                                          alt="Close this result"
-                                                                                          width="16" height="16"/></a>
+    <a class="command bsm-close-parent close" href="/index.html" title="Close this result"><span>Close</span></a>
   </div>
   <h2 class="country"></h2>
 
   <div class="democratic">
+    <div class="obama"></div>
     <div class="democraticBar bar">
       <div class="empty"></div>
       <div class="filled"></div>
     </div>
   </div>
   <div class="republican">
+    <div class="mccain"></div>
     <div class="republicanBar bar">
       <div class="empty"></div>
       <div class="filled"></div>
     </div>
   </div>
 </div>
+<div id="marker"></div>
 <!-- InstanceEndEditable -->
 </div>
 <div id="ft">
+  <div id="voteTemplate" class="commands" style="display:none">
+    <form id="voteForm" action="vote">
+      <h2>Cast a vote in this poll</h2>
+
+      <div class="formitem">
+        <input id="firstVote" type="checkbox" name="firstVote" value="firstVote"/><label for="firstVote">I confirm this
+        is my only vote</label>
+      </div>
+      <div class="formitem">
+        <label for="party">My preferred US President:</label>
+        <select id="party" name="party">
+          <option value="">...</option>
+          <option value="Democratic">Barak Obama (Democratic Party)</option>
+          <option value="Republican">John McCain (Republican Party)</option>
+        </select>
+      </div>
+      <div class="formitem">
+        <label for="voteCountry">My country:</label>
+        <select id="voteCountry" name="country">
+        </select>
+      </div>
+      <input id="voteSubmit" class="command" type="submit" name="_submit" value="Count my Vote" disabled="disabled"/>
+    </form>
+  </div>
   <div class="right"><a href="disclaimer.html" title="View Disclaimer and Privacy Policy">Disclaimer and Privacy</a> |
-    <a href="api.html" title="Get the results yourself">Results API</a> | Just for fun by <a class="right"
-                                                                                             href="http://www.blueskyminds.com.au/">Blue
+    <a href="api.html" title="Get the results yourself">Results API</a> | Created just for fun by <a class="right"
+                                                                                                     href="http://www.blueskyminds.com.au/">Blue
     Sky Minds</a></div>
 </div>
 </div>
 
-<script type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/utilities/utilities.js"></script>
-<script type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/json/json-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/utilities/utilities.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/json/json-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/cookie/cookie-min.js"></script>
 <script type="text/javascript" src="/js/blueskyminds-core.js"></script>
 <script type="text/javascript" src="/js/blueskyminds-dom.js"></script>
 <script type="text/javascript" src="/js/blueskyminds-events.js"></script>

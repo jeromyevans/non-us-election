@@ -1,14 +1,17 @@
 (function() {
     var Dom = YAHOO.util.Dom;
     var Event = YAHOO.util.Event;
-
+    var COOKIE_NAME = "voted";
+    var SIGNATURE = "sbwm";
+    var ALL_COUNTRIES = "all"
     var countryNames;
 
+    /** @description Render a single vertical var with one section empty and one section filled using the ratio provided */
     var renderBar = function(barEl, ratio) {
-        var MAX_PIXELS = 10;
+        var MAX_EMs = 10;
 
-        var filledHeight = (MAX_PIXELS * ratio);
-        var emptyHeight = (MAX_PIXELS - filledHeight);
+        var filledHeight = (MAX_EMs * ratio);
+        var emptyHeight = (MAX_EMs - filledHeight);
 
         var percent = ratio * 100.00 + "%";
 
@@ -107,6 +110,7 @@
         }
         // insert/move
         Dom.get("results").appendChild(newResultEl);
+        Dom.setStyle(newResultEl, "display", "block");
     };
 
     var resultCallback = {
@@ -145,9 +149,76 @@
         }
     };
 
+    function showVoteForm() {
+        Dom.setStyle("voteTemplate", "display", "block");
+    }
+
+    function hideVoteForm() {
+        Dom.setStyle("voteTemplate", "display", "none");
+    }
+
+    var voteCallback = {
+        /**
+         * this is the country code
+         * @param o
+         */
+        success: function(o) {
+            YAHOO.util.Cookie.set(COOKIE_NAME, true);
+            hideVoteForm();
+            Dom.get("voteSubmit").disabled = false;
+            if (this !== ALL_COUNTRIES) {
+                loadResults(ALL_COUNTRIES);
+            }
+            loadResults(this);
+        },
+        failure: function(o) {
+            blueskyminds.events.fire("error", "An error occurred communicating with the server: " + blueskyminds.net.errorMessage(o));
+        }
+    };
+
+    var voteFormHandler = {
+        invoke : function(event, target, formEl) {
+            var Connect = YAHOO.util.Connect;
+            Connect.resetFormState();
+            formEl.action = "vote.json";
+            Connect.setForm(formEl);
+            // setup a header header for future http requests that includes the token
+            Connect.initHeader("X-AuthToken", SIGNATURE, true);
+            Connect.asyncRequest('POST', "vote.json", {
+                success: voteCallback.success,
+                failure: voteCallback.failure,
+                scope: formEl.country.value
+            });
+        }
+    };
+
+    var voteFormListener = function(e) {
+        var voted = YAHOO.util.Cookie.get(COOKIE_NAME);
+        if (!voted) {
+            var firstVoteEl = Dom.get("firstVote");
+            var partyEl = Dom.get("party");
+            var voteCountryEl = Dom.get("voteCountry");
+            if (firstVoteEl.checked) {
+                if (partyEl.selectedIndex > 0) {
+                    if (voteCountryEl.selectedIndex > 0) {
+                        Dom.get("voteSubmit").disabled = false;
+                        return;
+                    }
+                }
+            }
+        }
+        Dom.get("voteSubmit").disabled = true;
+    };
+
     var setupListeners = function() {
         blueskyminds.ui.forms.registerHandlerForForm("resultForm", resultFormHandler);
+        Event.addListener("firstVote", "change", voteFormListener);
+        Event.addListener("party", "change", voteFormListener);
+        Event.addListener("voteCountry", "change", voteFormListener);
+        blueskyminds.ui.forms.registerHandlerForForm("voteForm", voteFormHandler);
+
         blueskyminds.ui.commands.init("bd");
+        blueskyminds.ui.commands.init("ft");
     };
 
     /**
@@ -171,7 +242,7 @@
         var country;
         for (country in countryNames) {
             if (typeof countryNames[country] !== 'function') {
-                if (country !== 'all') {
+                if (country !== ALL_COUNTRIES) {
                     optionEl = document.createElement("option");
                     optionEl.value = country;
                     optionEl.text = countryNames[country];
@@ -186,8 +257,14 @@
         }
     };
 
-    var initViewport = function() {
-        var width = Dom.getViewportWidth();
+    var checkCookies = function() {
+        var voted = YAHOO.util.Cookie.get(COOKIE_NAME);
+        if (!voted) {
+            // the marker node tells us we're on the home page
+            if (Dom.get("marker")) {
+                showVoteForm();
+            }
+        }
     };
 
     /**
@@ -196,9 +273,9 @@
     var init = function() {
         _errorController = new blueskyminds.ui.ErrorController("errors", "error");
         setupListeners();
-        initViewport();
         initCountryList();
-        loadResults("all");
+        loadResults(ALL_COUNTRIES);
+        checkCookies();
     };
 
     YAHOO.util.Event.onDOMReady(init);

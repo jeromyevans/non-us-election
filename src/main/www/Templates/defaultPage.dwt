@@ -2,7 +2,7 @@
 <html>
 <head>
 <!-- TemplateBeginEditable name="doctitle" -->
-  <title>The US Presidential Election Poll for non-US citizens</title>
+  <title>The US Presidential Election Poll for the rest of the world</title>
 <!-- TemplateEndEditable -->
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
   <meta name="Keywords" content="US Election">
@@ -11,7 +11,7 @@
   <meta name="Author" content="Blue Sky Minds Pty Ltd"/>
   <meta name="Copyright" content="Blue Sky Minds Pty Ltd"/>
 
-  <link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/2.5.1/build/reset-fonts-grids/reset-fonts-grids.css">
+  <link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css">
   <link type="text/css" rel="stylesheet" href="/css/election.css">
   <script type="text/javascript"></script>
 </head>
@@ -25,13 +25,36 @@
 	  <!-- TemplateBeginEditable name="bd" -->
 	  <!-- TemplateEndEditable -->    
 	</div>
-    <div id="ft">      
+    <div id="ft"> 
+	  <div id="voteTemplate" class="commands" style="display:none">
+       <form id="voteForm" action="vote">
+         <h2>Cast a vote in this poll</h2>
+         <div class="formitem">
+           <input id="firstVote" type="checkbox" name="firstVote" value="firstVote"/><label for="firstVote">I confirm this is my only vote</label>
+         </div>
+         <div class="formitem">
+           <label for="party">My preferred US President:</label>
+           <select id="party" name="party">
+             <option value="">...</option>
+             <option value="Democratic">Barak Obama (Democratic Party)</option>
+             <option value="Republican">John McCain (Republican Party)</option>
+           </select>
+         </div>
+         <div class="formitem">
+           <label for="voteCountry">My country:</label>
+           <select  id="voteCountry" name="country">
+           </select>
+         </div>
+         <input class="command" type="submit" name="_submit" value="Count my Vote" disabled="disabled"/>
+       </form>
+       </div>     
    	  <div class="right"><a href="disclaimer.html" title="View Disclaimer and Privacy Policy">Disclaimer and Privacy</a> | <a href="api.html" title="Get the results yourself">Results API</a> | Created just for fun by <a class="right" href="http://www.blueskyminds.com.au/">Blue Sky Minds</a></div>
     </div>
   </div>
   
-  <script type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/utilities/utilities.js"></script>    
-  <script type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/json/json-min.js"></script>
+  <script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/utilities/utilities.js"></script>    
+  <script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/json/json-min.js"></script>
+  <script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/cookie/cookie-min.js"></script>
   <script type="text/javascript" src="/js/blueskyminds-core.js"></script>
   <script type="text/javascript" src="/js/blueskyminds-dom.js"></script>
   <script type="text/javascript" src="/js/blueskyminds-events.js"></script>

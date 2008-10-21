@@ -9,11 +9,31 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
 p.intro {
   text-align: center;
   font-size: 11pt;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+ol {
+  margin-left: 2em;
+}
+
+ol li {
+  line-height: 1.5em;
+  list-style: decimal outside;
 }
 
 h2.country {
@@ -55,10 +75,38 @@ div.formitem {
 div.result {
   border: 1px solid #cccccc;
   margin: 1em;
-  height: 14em;
+  height: 20em;
   padding: 0 0 1em 1em;
   width: 9em;
   float: left;
+}
+
+div.democratic,
+  div.republican {
+  float: left;
+}
+
+div.obama {
+  margin: 0 auto;
+  padding-top: 55px;
+  background: black url( "/images/sprites.gif" ) 0px 0px no-repeat;
+}
+
+div.mccain {
+  margin: 0 auto;
+  padding-top: 55px;
+  background: black url( "/images/sprites.gif" ) 0px -55px no-repeat;
+}
+
+a.close {
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: url( "/images/sprites.gif" ) 0px -110px no-repeat;
+}
+
+a.close span {
+  display: none;
 }
 
 div.buttons {
@@ -70,7 +118,7 @@ div.bar {
   width: 4em;
   float: left;
   text-align: center;
-
+  margin-top: 1px;
 }
 
 div.result h2 {
