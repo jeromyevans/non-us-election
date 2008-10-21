@@ -6,6 +6,11 @@
     var ALL_COUNTRIES = "all"
     var countryNames;
 
+    /**
+     * @description count of the number of results currently rendered, used for layout
+     */
+    var resultCount = 0;
+
     /** @description Render a single vertical var with one section empty and one section filled using the ratio provided */
     var renderBar = function(barEl, ratio) {
         var MAX_EMs = 10;
@@ -13,7 +18,7 @@
         var filledHeight = (MAX_EMs * ratio);
         var emptyHeight = (MAX_EMs - filledHeight);
 
-        var percent = ratio * 100.00 + "%";
+        var percent = ("" + (ratio * 100.00)).substr(0, 6) + "%";
 
         var emptyBarEl = Dom.getElementsByClassName("empty", "div", barEl)[0];
         var filledBarEl = Dom.getElementsByClassName("filled", "div", barEl)[0];
@@ -22,8 +27,10 @@
         Dom.setStyle(filledBarEl, "height", filledHeight + "em");
 
         if (filledHeight > 1) {
+            blueskyminds.dom.clearHTML(emptyBarEl);
             blueskyminds.dom.insertHTML(filledBarEl, percent);
         } else {
+            blueskyminds.dom.clearHTML(filledBarEl);
             blueskyminds.dom.insertHTML(emptyBarEl, percent);
         }
     }
@@ -61,11 +68,12 @@
         return result;
     };
 
-    /**
-     * @description render the result on the current page
-     */
-    var renderResult = function(voteResult) {
 
+    /**
+     * @description prepares the result element.  If the element already exists for the country it's resused
+     * Increments the resultCount if appropriate
+     */
+    var prepareElement = function(voteResult) {
         var id = voteResult.country + "_";
         // check if the result already exists
         var resultEl = Dom.get(id);
@@ -73,25 +81,38 @@
         if (resultEl) {
             // purge the old one and reuse it
             newResultEl = resultEl;
+            if (Dom.getStyle(newResultEl, "display") === "none") {
+                // recount the result for layout
+                resultCount += 1;
+            }
         } else {
             var templateEl = Dom.get("resultTemplate");
             newResultEl = templateEl.cloneNode(true);
+
+            // count the additional result for layout
+            resultCount += 1;
         }
+
+        newResultEl.setAttribute("id", id);
+
+        return newResultEl;
+    };
+
+    /**
+     * @description render the result on the current page
+     */
+    var renderResult = function(voteResult, newResultEl) {
 
         var totalVotes = voteResult.democratic + voteResult.republican;
         var d;
         var r;
         if (totalVotes > 0) {
-            d = voteResult.democratic / totalVotes;
-            r = voteResult.republican / totalVotes;
+            d = Math.round(voteResult.democratic / totalVotes * 100) / 100;
+            r = Math.round((1 - d) * 100) / 100;
         } else {
             d = 0;
             r = 0;
         }
-
-        var anotherEl = Dom.get("another");
-
-        newResultEl.setAttribute("id", id);
 
         var democraticBar = Dom.getElementsByClassName("democraticBar", "div", newResultEl)[0];
         renderBar(democraticBar, d);
@@ -103,28 +124,34 @@
 
         var title = Dom.getElementsByClassName("country", "h2", newResultEl)[0];
         blueskyminds.dom.insertHTML(title, countryName);
+        var voteCount = Dom.getElementsByClassName("voteCount", "h3", newResultEl)[0];
+        blueskyminds.dom.insertHTML(voteCount, "(" + totalVotes + " votes)");
 
-        if (!resultEl) {
-            // append the new element
-            Dom.setStyle(newResultEl, "display", "block");
-        }
-        // insert/move
-        Dom.get("results").appendChild(newResultEl);
+        // insert/move into the last row
+        var lastRowEl = Dom.getElementsByClassName("last-row", "div", Dom.get("results"))[0];
+        lastRowEl.appendChild(newResultEl);
         Dom.setStyle(newResultEl, "display", "block");
     };
 
     var resultCallback = {
         success: function(o) {
+            var voteResult;
             try {
-                var voteResult = YAHOO.lang.JSON.parse(o.responseText);
+                voteResult = YAHOO.lang.JSON.parse(o.responseText);
+            } catch(e) {
+                blueskyminds.events.fire("error", "The response from the server was invalid.  The data was not valid JSON. Message: " + e.message);
+            }
+            try {
                 if (YAHOO.lang.isObject(voteResult)) {
                     // todo: confirm that it matches the expected interface
-                    renderResult(voteResult);
+                    var resultEl = prepareElement(voteResult);
+                    layoutViewport();
+                    renderResult(voteResult, resultEl);
                 } else {
                     blueskyminds.events.fire("error", "The response from the server was invalid.");
                 }
             } catch(e) {
-                blueskyminds.events.fire("error", "The response from the server was invalid.  The data was not valid JSON. Message: " + e.message);
+                blueskyminds.events.fire("error", "A client-side exception occured while updating the page. Message: " + e.message);
             }
         },
         failure: function(o) {
@@ -163,7 +190,7 @@
          * @param o
          */
         success: function(o) {
-            YAHOO.util.Cookie.set(COOKIE_NAME, true);
+            YAHOO.util.Cookie.set(COOKIE_NAME, true, {expires: blueskyminds.calendar.inOneYear()});
             hideVoteForm();
             Dom.get("voteSubmit").disabled = false;
             if (this !== ALL_COUNTRIES) {
@@ -210,13 +237,32 @@
         Dom.get("voteSubmit").disabled = true;
     };
 
+    /**
+     * @description replaces the default close-parent command with one the updates the resultCount
+     */
+    var closeResultCommand = {
+        canHandle: function(event, target) {
+            return Dom.hasClass(target, "close-result");
+        },
+        invoke : function(event, target) {
+            // find the closeable ancestor and hide it
+            var closeableEl = Dom.getAncestorByClassName(target, "bsm-closeable");
+            if (closeableEl) {
+                blueskyminds.ui.effects.hide(closeableEl);
+                resultCount--;
+                layoutViewport();
+            }
+            return true; // block other commands
+        }
+    };
+
     var setupListeners = function() {
         blueskyminds.ui.forms.registerHandlerForForm("resultForm", resultFormHandler);
         Event.addListener("firstVote", "change", voteFormListener);
         Event.addListener("party", "change", voteFormListener);
         Event.addListener("voteCountry", "change", voteFormListener);
         blueskyminds.ui.forms.registerHandlerForForm("voteForm", voteFormHandler);
-
+        blueskyminds.ui.commands.registerCommand(closeResultCommand);
         blueskyminds.ui.commands.init("bd");
         blueskyminds.ui.commands.init("ft");
     };
@@ -268,14 +314,77 @@
     };
 
     /**
+     * @description center aligns the results within the viewport
+     */
+    var layoutViewport = function() {
+        var RESULT_WIDTH = 12 * 13;  // 10 + 2 padding em's
+        var viewPortWidth = Dom.getViewportWidth();
+
+        var maxResultsPerLine = (Math.floor(viewPortWidth / RESULT_WIDTH) - 1) || 1;
+        var resultsRequired = (resultCount || 1);
+        var resultsIncluded = 0;
+        var rows = [];
+        var resultsThisLine;
+        var rowNo = 0;
+        // calculate how many results need to be included on each line until all results
+        // are accounted for
+        do {
+            resultsThisLine = Math.min(maxResultsPerLine, resultsRequired - resultsIncluded);
+            if (resultsThisLine > 0) {
+                rows[rowNo] = resultsThisLine;
+                resultsIncluded += resultsThisLine;
+            }
+            rowNo += 1;
+        } while (resultsIncluded < resultsRequired);
+
+
+        // create/delete rows
+        var resultsEl = Dom.get("results");
+        var rowElements = Dom.getElementsByClassName("row", "div", resultsEl);
+        if (rowElements.length > rows.length) {
+            // purge the unncessary row elements
+            for (rowNo = rows.length; rowNo < rowElements.length; rowNo++) {
+                Event.purgeElement(rowElements[rowNo]);
+                resultsEl.removeChild(rowElements[rowNo]);
+            }
+        } else {
+            // create new row elements
+            if (rowElements.length < rows.length) {
+                for (rowNo = rowElements.length; rowNo < rows.length; rowNo++) {
+                    var newRowEl = document.createElement("div");
+                    newRowEl.setAttribute("id", "row" + rowNo);
+                    newRowEl.setAttribute("class", "row");
+                    resultsEl.appendChild(newRowEl)
+                }
+            }
+        }
+
+        // set the left padding of each row to center it
+        for (rowNo = 0; rowNo < rows.length; rowNo++) {
+            var rowEl = Dom.get("row" + rowNo);
+            Dom.setStyle(rowEl, "margin-left", Math.floor((viewPortWidth / 2 ) - (rows[rowNo] * RESULT_WIDTH / 2)) + "px");
+            if (rowNo === rows.length - 1) {
+                Dom.addClass(rowEl, "last-row");
+            } else {
+                Dom.removeClass(rowEl, "last-row");
+            }
+        }
+    };
+
+    /**
      * @description Initialise the listeners on the forms and load initial results
      */
     var init = function() {
-        _errorController = new blueskyminds.ui.ErrorController("errors", "error");
-        setupListeners();
-        initCountryList();
-        loadResults(ALL_COUNTRIES);
-        checkCookies();
+        var _errorController = new blueskyminds.ui.ErrorController("errors", "error");
+        try {
+            setupListeners();
+            initCountryList();
+            loadResults(ALL_COUNTRIES);
+            checkCookies();
+            layoutViewport();
+        } catch (e) {
+            blueskyminds.events.fire("error", "A client-side exception occurred during init. Message:" + e.message);
+        }
     };
 
     YAHOO.util.Event.onDOMReady(init);

@@ -37,11 +37,17 @@ ol li {
 }
 
 h2.country {
-  height: 3em;
+  height: 3.5em;
+  width: 8em;
+}
+
+h3.voteCount {
+  text-align: center;
 }
 
 #another {
-  margin-top: 0.5em;
+  text-align: center;
+  margin: 0.5em;
   height: 2em;
 }
 
@@ -57,6 +63,8 @@ a:hover {
 #ft div.right {
   float: right;
   margin-left: 2em;
+  margin-top: 0.5em;
+  color: #ccc;
   font-size: 8pt;
 }
 
@@ -79,6 +87,12 @@ div.result {
   padding: 0 0 1em 1em;
   width: 9em;
   float: left;
+  background-color: #f0f0f0;
+}
+
+div.row {
+  height: 23em;
+  margin-bottom: 1em;
 }
 
 div.democratic,
@@ -137,11 +151,11 @@ div.empty {
 }
 
 div.republican div.filled {
-  background-color: red;
+  background-color: #cc0000;
 }
 
 div.democratic div.filled {
-  background-color: blue;
+  background-color: #2864C7;
 }
 
 div.republican div.empty {

@@ -17,21 +17,21 @@
 </head>
 
 <body class="yui-skin-sam">
-<div id="doc4">
+<div id="doc3">
 <div id="hd">
   <div id="errors" class="component hidden"></div>
 </div>
 <div id="bd">
 <!-- InstanceBeginEditable name="bd" -->
-<h1>US Presidential Election Poll for the rest of the world</h1>
+<h1>US Presidential Election Poll for the Rest of the World</h1>
 
 <p class="intro">We can't avoid hearing about the 2008 US Elections. The outcome will probably affect us all. We have no
-  influence but we can express an opinion.</p>
+  influence but we can still express an opinion.</p>
 
 <div id="another" class="commands">
 <form id="resultForm" action="result.xhtml">
 <select id="country" name="country">
-<option value="all">The rest of the World (all ex. US)</option>
+<option value="all">The Rest of the World (all ex. US)</option>
 <option value="af">Afghanistan</option>
 <option value="ax">Åland Islands</option>
 <option value="al">Albania</option>
@@ -283,12 +283,15 @@
 </form>
 </div>
 <div id="results" class="commands">
+  <div id="row0" class="row"></div>
 </div>
 <div id="resultTemplate" class="result bsm-closeable" style="display:none">
   <div class="commands buttons">
-    <a class="command bsm-close-parent close" href="/index.html" title="Close this result"><span>Close</span></a>
+    <a class="command close-result close" href="/index.html" title="Close this result"><span>Close</span></a>
   </div>
   <h2 class="country"></h2>
+
+  <h3 class="voteCount"></h3>
 
   <div class="democratic">
     <div class="obama"></div>
@@ -334,8 +337,8 @@
     </form>
   </div>
   <div class="right"><a href="disclaimer.html" title="View Disclaimer and Privacy Policy">Disclaimer and Privacy</a> |
-    <a href="api.html" title="Get the results yourself">Results API</a> | Created just for fun by <a class="right"
-                                                                                                     href="http://www.blueskyminds.com.au/">Blue
+    <a href="api.html" title="Get the results yourself">Results API</a> | <a class="right"
+                                                                             href="http://www.blueskyminds.com.au/">Blue
     Sky Minds</a></div>
 </div>
 </div>

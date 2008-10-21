@@ -2,7 +2,7 @@
 <html>
 <head>
 <!-- TemplateBeginEditable name="doctitle" -->
-  <title>The US Presidential Election Poll for the rest of the world</title>
+  <title>The US Presidential Election Poll for the Rest of the World</title>
 <!-- TemplateEndEditable -->
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
   <meta name="Keywords" content="US Election">
@@ -17,7 +17,7 @@
 </head>
 
 <body class="yui-skin-sam">  
-  <div id="doc4">
+  <div id="doc3">
     <div id="hd">
       <div id="errors" class="component hidden"></div>
     </div>
@@ -45,10 +45,10 @@
            <select  id="voteCountry" name="country">
            </select>
          </div>
-         <input class="command" type="submit" name="_submit" value="Count my Vote" disabled="disabled"/>
+         <input id="voteSubmit" class="command" type="submit" name="_submit" value="Count my Vote" disabled="disabled"/>
        </form>
        </div>     
-   	  <div class="right"><a href="disclaimer.html" title="View Disclaimer and Privacy Policy">Disclaimer and Privacy</a> | <a href="api.html" title="Get the results yourself">Results API</a> | Created just for fun by <a class="right" href="http://www.blueskyminds.com.au/">Blue Sky Minds</a></div>
+   	  <div class="right"><a href="disclaimer.html" title="View Disclaimer and Privacy Policy">Disclaimer and Privacy</a> | <a href="api.html" title="Get the results yourself">Results API</a> | <a class="right" href="http://www.blueskyminds.com.au/">Blue Sky Minds</a></div>
     </div>
   </div>
   

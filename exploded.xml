@@ -1,0 +1,34 @@
+<!--
+An ant script for deploying static files to the exploded directory at run-time
+-->
+<project default="update-js" name="update-exploded">
+
+  <property name="exploded.dir" value="out/exploded/nonuselectionWeb"/>
+
+  <property name="js.src.dir" value="src/main/js"/>
+  <property name="js.target.dir" value="${exploded.dir}/js"/>
+
+  <property name="jsp.src.dir" value="src/main/webapp"/>
+  <property name="jsp.target.dir" value="${exploded.dir}/"/>
+
+  <target name="update-js">
+
+    <!-- Install into exploded now -->
+    <copy todir="${js.target.dir}" overwrite="true">
+      <fileset dir="${js.src.dir}/">
+        <include name="*.js"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="update-jsp">
+
+    <!-- Install into exploded now -->
+    <copy todir="${jsp.target.dir}" overwrite="true">
+      <fileset dir="${jsp.src.dir}/">
+        <include name="*.jsp"/>
+      </fileset>
+    </copy>
+  </target>
+
+</project>
