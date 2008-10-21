@@ -20,6 +20,7 @@
           <root url="file://$MODULE_DIR$/web" relative="/" />
           <root url="file://$MODULE_DIR$/src/main/www" relative="/" />
           <root url="file://$MODULE_DIR$/src/main/js" relative="/js" />
+          <root url="file://$MODULE_DIR$/src/main/css" relative="/css" />
         </webroots>
         <building>
           <setting name="EXPLODED_URL" value="file://$MODULE_DIR$/out/exploded/nonuselectionWeb" />
@@ -33,85 +34,205 @@
           <setting name="BUILD_ONLY_WEB_RESOURCES" value="false" />
         </building>
         <packaging>
-          <containerElement type="library" name="com.blueskyminds.homebyfive.web:web-core:0.1-SNAPSHOT" level="module">
+          <containerElement type="module" name="nonuselection">
             <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/web-core-0.1-SNAPSHOT.jar" />
-          </containerElement>
-          <containerElement type="library" name="commons-logging:commons-logging:1.0.4" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/commons-logging-1.0.4.jar" />
-          </containerElement>
-          <containerElement type="library" name="com.blueskyminds.homebyfive.business:business-core:0.1-SNAPSHOT" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/business-core-0.1-SNAPSHOT.jar" />
-          </containerElement>
-          <containerElement type="library" name="javax.persistence:persistence-api:1.0" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/persistence-api-1.0.jar" />
-          </containerElement>
-          <containerElement type="library" name="com.blueskyminds.homebyfive.framework:framework-core:0.1-SNAPSHOT" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/framework-core-0.1-SNAPSHOT.jar" />
-          </containerElement>
-          <containerElement type="library" name="commons-beanutils:commons-beanutils:1.7.0" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/commons-beanutils-1.7.0.jar" />
-          </containerElement>
-          <containerElement type="library" name="commons-lang:commons-lang:2.3" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/commons-lang-2.3.jar" />
-          </containerElement>
-          <containerElement type="library" name="xstream:xstream:1.1.2" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/xstream-1.1.2.jar" />
-          </containerElement>
-          <containerElement type="library" name="xpp3:xpp3_min:1.1.4c" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/xpp3_min-1.1.4c.jar" />
-          </containerElement>
-          <containerElement type="library" name="freemarker:freemarker:2.3.8" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/freemarker-2.3.8.jar" />
-          </containerElement>
-          <containerElement type="library" name="org.hibernate:hibernate-entitymanager:3.3.2.GA" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/hibernate-entitymanager-3.3.2.GA.jar" />
-          </containerElement>
-          <containerElement type="library" name="org.hibernate:hibernate:3.2.6.ga" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/hibernate-3.2.6.ga.jar" />
-          </containerElement>
-          <containerElement type="library" name="net.sf.ehcache:ehcache:1.2.3" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/ehcache-1.2.3.jar" />
-          </containerElement>
-          <containerElement type="library" name="commons-collections:commons-collections:3.2" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/commons-collections-3.2.jar" />
-          </containerElement>
-          <containerElement type="library" name="javax.transaction:jta:1.0.1B" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/jta-1.0.1B.jar" />
-          </containerElement>
-          <containerElement type="library" name="asm:asm-attrs:1.5.3" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/asm-attrs-1.5.3.jar" />
-          </containerElement>
-          <containerElement type="library" name="dom4j:dom4j:1.6.1" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/dom4j-1.6.1.jar" />
+            <attribute name="URI" value="/WEB-INF/classes" />
           </containerElement>
           <containerElement type="library" name="antlr:antlr:2.7.6" level="module">
             <attribute name="method" value="1" />
             <attribute name="URI" value="/WEB-INF/lib/antlr-2.7.6.jar" />
           </containerElement>
-          <containerElement type="library" name="cglib:cglib:2.1_3" level="module">
+          <containerElement type="library" name="aopalliance:aopalliance:1.0" level="module">
             <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/cglib-2.1_3.jar" />
+            <attribute name="URI" value="/WEB-INF/lib/aopalliance-1.0.jar" />
+          </containerElement>
+          <containerElement type="library" name="asm:asm-attrs:1.5.3" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/asm-attrs-1.5.3.jar" />
           </containerElement>
           <containerElement type="library" name="asm:asm:1.5.3" level="module">
             <attribute name="method" value="1" />
             <attribute name="URI" value="/WEB-INF/lib/asm-1.5.3.jar" />
+          </containerElement>
+          <containerElement type="library" name="cglib:cglib:2.1_3" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/cglib-2.1_3.jar" />
+          </containerElement>
+          <containerElement type="library" name="com.blueskyminds.homebyfive.business:business-core:0.1-SNAPSHOT" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/business-core-0.1-SNAPSHOT.jar" />
+          </containerElement>
+          <containerElement type="library" name="com.blueskyminds.homebyfive.framework:framework-core:0.1-SNAPSHOT" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/framework-core-0.1-SNAPSHOT.jar" />
+          </containerElement>
+          <containerElement type="library" name="com.blueskyminds.homebyfive.framework:framework-guice:0.1-SNAPSHOT" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/framework-guice-0.1-SNAPSHOT.jar" />
+          </containerElement>
+          <containerElement type="library" name="com.blueskyminds.homebyfive.web:web-core:0.1-SNAPSHOT" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/web-core-0.1-SNAPSHOT.jar" />
+          </containerElement>
+          <containerElement type="library" name="com.google.inject.servlet:guice-servlet:1.0" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/guice-servlet-1.0.jar" />
+          </containerElement>
+          <containerElement type="library" name="com.google.inject.struts2:guice-struts2-plugin:1.0.1" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/guice-struts2-plugin-1.0.1.jar" />
+          </containerElement>
+          <containerElement type="library" name="com.google.inject:guice:1.0" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/guice-1.0.jar" />
+          </containerElement>
+          <containerElement type="library" name="com.opensymphony:xwork:2.1.2-SNAPSHOT" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/xwork-2.1.2-SNAPSHOT.jar" />
+          </containerElement>
+          <containerElement type="library" name="com.sun:tools:1.5.0" level="module">
+            <attribute name="method" value="0" />
+            <attribute name="URI" value="/WEB-INF/lib" />
+          </containerElement>
+          <containerElement type="library" name="com.thoughtworks.xstream:xstream:1.2.2" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/xstream-1.2.2.jar" />
+          </containerElement>
+          <containerElement type="library" name="commons-beanutils:commons-beanutils:1.7.0" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/commons-beanutils-1.7.0.jar" />
+          </containerElement>
+          <containerElement type="library" name="commons-codec:commons-codec:1.2" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/commons-codec-1.2.jar" />
+          </containerElement>
+          <containerElement type="library" name="commons-collections:commons-collections:3.2" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/commons-collections-3.2.jar" />
+          </containerElement>
+          <containerElement type="library" name="commons-digester:commons-digester:1.8" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/commons-digester-1.8.jar" />
+          </containerElement>
+          <containerElement type="library" name="commons-fileupload:commons-fileupload:1.2.1" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/commons-fileupload-1.2.1.jar" />
+          </containerElement>
+          <containerElement type="library" name="commons-httpclient:commons-httpclient:3.1" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/commons-httpclient-3.1.jar" />
+          </containerElement>
+          <containerElement type="library" name="commons-io:commons-io:1.3.2" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/commons-io-1.3.2.jar" />
+          </containerElement>
+          <containerElement type="library" name="commons-lang:commons-lang:2.3" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/commons-lang-2.3.jar" />
+          </containerElement>
+          <containerElement type="library" name="commons-logging:commons-logging-api:1.1" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/commons-logging-api-1.1.jar" />
+          </containerElement>
+          <containerElement type="library" name="commons-logging:commons-logging:1.0.4" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/commons-logging-1.0.4.jar" />
+          </containerElement>
+          <containerElement type="library" name="dom4j:dom4j:1.6.1" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/dom4j-1.6.1.jar" />
+          </containerElement>
+          <containerElement type="library" name="freemarker:freemarker:2.3.8" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/freemarker-2.3.8.jar" />
+          </containerElement>
+          <containerElement type="library" name="hsqldb:hsqldb:1.8.0.7" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/hsqldb-1.8.0.7.jar" />
+          </containerElement>
+          <containerElement type="library" name="javassist:javassist:3.4.GA" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/javassist-3.4.GA.jar" />
+          </containerElement>
+          <containerElement type="library" name="javax.persistence:persistence-api:1.0" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/persistence-api-1.0.jar" />
+          </containerElement>
+          <containerElement type="library" name="javax.servlet:servlet-api:2.4" level="module">
+            <attribute name="method" value="0" />
+            <attribute name="URI" value="&lt;N/A&gt;" />
+          </containerElement>
+          <containerElement type="library" name="javax.transaction:jta:1.0.1B" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/jta-1.0.1B.jar" />
+          </containerElement>
+          <containerElement type="library" name="junit:junit:3.8.2" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/junit-3.8.2.jar" />
+          </containerElement>
+          <containerElement type="library" name="log4j:log4j:1.2.14" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/log4j-1.2.14.jar" />
+          </containerElement>
+          <containerElement type="library" name="net.sf.ehcache:ehcache:1.2.3" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/ehcache-1.2.3.jar" />
+          </containerElement>
+          <containerElement type="library" name="net.sf.ezmorph:ezmorph:1.0.3" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/ezmorph-1.0.3.jar" />
+          </containerElement>
+          <containerElement type="library" name="net.sf.json-lib:json-lib:2.1:jdk15" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/json-lib-2.1.jar" />
+          </containerElement>
+          <containerElement type="library" name="opensymphony:ognl:2.6.11" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/ognl-2.6.11.jar" />
+          </containerElement>
+          <containerElement type="library" name="opensymphony:sitemesh:2.3" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/sitemesh-2.3.jar" />
+          </containerElement>
+          <containerElement type="library" name="org.apache.struts:struts2-codebehind-plugin:2.1.3-SNAPSHOT" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/struts2-codebehind-plugin-2.1.3-SNAPSHOT.jar" />
+          </containerElement>
+          <containerElement type="library" name="org.apache.struts:struts2-core:2.1.3-SNAPSHOT" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/struts2-core-2.1.3-SNAPSHOT.jar" />
+          </containerElement>
+          <containerElement type="library" name="org.apache.struts:struts2-rest-plugin:2.1.3-SNAPSHOT" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/struts2-rest-plugin-2.1.3-SNAPSHOT.jar" />
+          </containerElement>
+          <containerElement type="library" name="org.apache.struts:struts2-sitemesh-plugin:2.1.3-SNAPSHOT" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/struts2-sitemesh-plugin-2.1.3-SNAPSHOT.jar" />
+          </containerElement>
+          <containerElement type="library" name="org.apache.struts:struts2-tiles-plugin:2.1.3-SNAPSHOT" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/struts2-tiles-plugin-2.1.3-SNAPSHOT.jar" />
+          </containerElement>
+          <containerElement type="library" name="org.apache.tiles:tiles-api:2.0.5" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/tiles-api-2.0.5.jar" />
+          </containerElement>
+          <containerElement type="library" name="org.apache.tiles:tiles-core:2.0.5" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/tiles-core-2.0.5.jar" />
+          </containerElement>
+          <containerElement type="library" name="org.apache.tiles:tiles-jsp:2.0.5" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/tiles-jsp-2.0.5.jar" />
+          </containerElement>
+          <containerElement type="library" name="org.freemarker:freemarker:2.3.13" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/freemarker-2.3.13.jar" />
+          </containerElement>
+          <containerElement type="library" name="org.hibernate:ejb3-persistence:1.0.1.GA" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/ejb3-persistence-1.0.1.GA.jar" />
           </containerElement>
           <containerElement type="library" name="org.hibernate:hibernate-annotations:3.3.1.GA" level="module">
             <attribute name="method" value="1" />
@@ -121,145 +242,33 @@
             <attribute name="method" value="1" />
             <attribute name="URI" value="/WEB-INF/lib/hibernate-commons-annotations-3.0.0.ga.jar" />
           </containerElement>
-          <containerElement type="library" name="org.hibernate:ejb3-persistence:1.0.1.GA" level="module">
+          <containerElement type="library" name="org.hibernate:hibernate-entitymanager:3.3.2.GA" level="module">
             <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/ejb3-persistence-1.0.1.GA.jar" />
+            <attribute name="URI" value="/WEB-INF/lib/hibernate-entitymanager-3.3.2.GA.jar" />
           </containerElement>
-          <containerElement type="library" name="javassist:javassist:3.4.GA" level="module">
+          <containerElement type="library" name="org.hibernate:hibernate:3.2.6.ga" level="module">
             <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/javassist-3.4.GA.jar" />
-          </containerElement>
-          <containerElement type="library" name="hsqldb:hsqldb:1.8.0.7" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/hsqldb-1.8.0.7.jar" />
-          </containerElement>
-          <containerElement type="library" name="commons-codec:commons-codec:1.2" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/commons-codec-1.2.jar" />
-          </containerElement>
-          <containerElement type="library" name="com.google.inject:guice:1.0" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/guice-1.0.jar" />
-          </containerElement>
-          <containerElement type="library" name="warp-persist:warp-persist:1.0" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/warp-persist-1.0.jar" />
-          </containerElement>
-          <containerElement type="library" name="org.apache.struts:struts2-core:2.1.3-SNAPSHOT" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/struts2-core-2.1.3-SNAPSHOT.jar" />
-          </containerElement>
-          <containerElement type="library" name="com.opensymphony:xwork:2.1.2-SNAPSHOT" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/xwork-2.1.2-SNAPSHOT.jar" />
-          </containerElement>
-          <containerElement type="library" name="opensymphony:ognl:2.6.11" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/ognl-2.6.11.jar" />
+            <attribute name="URI" value="/WEB-INF/lib/hibernate-3.2.6.ga.jar" />
           </containerElement>
           <containerElement type="library" name="org.springframework:spring-test:2.5.4" level="module">
             <attribute name="method" value="1" />
             <attribute name="URI" value="/WEB-INF/lib/spring-test-2.5.4.jar" />
           </containerElement>
-          <containerElement type="library" name="junit:junit:3.8.2" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/junit-3.8.2.jar" />
-          </containerElement>
-          <containerElement type="library" name="org.freemarker:freemarker:2.3.13" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/freemarker-2.3.13.jar" />
-          </containerElement>
-          <containerElement type="library" name="commons-fileupload:commons-fileupload:1.2.1" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/commons-fileupload-1.2.1.jar" />
-          </containerElement>
-          <containerElement type="library" name="commons-io:commons-io:1.3.2" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/commons-io-1.3.2.jar" />
-          </containerElement>
-          <containerElement type="library" name="org.apache.struts:struts2-codebehind-plugin:2.1.3-SNAPSHOT" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/struts2-codebehind-plugin-2.1.3-SNAPSHOT.jar" />
-          </containerElement>
-          <containerElement type="library" name="org.apache.struts:struts2-rest-plugin:2.1.3-SNAPSHOT" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/struts2-rest-plugin-2.1.3-SNAPSHOT.jar" />
-          </containerElement>
-          <containerElement type="library" name="com.thoughtworks.xstream:xstream:1.2.2" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/xstream-1.2.2.jar" />
-          </containerElement>
-          <containerElement type="library" name="net.sf.json-lib:json-lib:2.1:jdk15" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/json-lib-2.1.jar" />
-          </containerElement>
-          <containerElement type="library" name="net.sf.ezmorph:ezmorph:1.0.3" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/ezmorph-1.0.3.jar" />
-          </containerElement>
-          <containerElement type="library" name="org.apache.struts:struts2-sitemesh-plugin:2.1.3-SNAPSHOT" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/struts2-sitemesh-plugin-2.1.3-SNAPSHOT.jar" />
-          </containerElement>
-          <containerElement type="library" name="opensymphony:sitemesh:2.3" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/sitemesh-2.3.jar" />
-          </containerElement>
-          <containerElement type="library" name="org.apache.struts:struts2-tiles-plugin:2.1.3-SNAPSHOT" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/struts2-tiles-plugin-2.1.3-SNAPSHOT.jar" />
-          </containerElement>
-          <containerElement type="library" name="org.apache.tiles:tiles-core:2.0.5" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/tiles-core-2.0.5.jar" />
-          </containerElement>
-          <containerElement type="library" name="org.apache.tiles:tiles-api:2.0.5" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/tiles-api-2.0.5.jar" />
-          </containerElement>
-          <containerElement type="library" name="commons-logging:commons-logging-api:1.1" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/commons-logging-api-1.1.jar" />
-          </containerElement>
-          <containerElement type="library" name="commons-digester:commons-digester:1.8" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/commons-digester-1.8.jar" />
-          </containerElement>
-          <containerElement type="library" name="org.apache.tiles:tiles-jsp:2.0.5" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/tiles-jsp-2.0.5.jar" />
-          </containerElement>
-          <containerElement type="library" name="com.google.inject.struts2:guice-struts2-plugin:1.0.1" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/guice-struts2-plugin-1.0.1.jar" />
-          </containerElement>
-          <containerElement type="library" name="com.google.inject.servlet:guice-servlet:1.0" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/guice-servlet-1.0.jar" />
-          </containerElement>
-          <containerElement type="library" name="commons-httpclient:commons-httpclient:3.1" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/commons-httpclient-3.1.jar" />
-          </containerElement>
-          <containerElement type="library" name="com.blueskyminds.homebyfive.framework:framework-guice:0.1-SNAPSHOT" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/framework-guice-0.1-SNAPSHOT.jar" />
-          </containerElement>
-          <containerElement type="library" name="aopalliance:aopalliance:1.0" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/aopalliance-1.0.jar" />
-          </containerElement>
-          <containerElement type="library" name="log4j:log4j:1.2.14" level="module">
-            <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/lib/log4j-1.2.14.jar" />
-          </containerElement>
           <containerElement type="library" name="ostermillerutils:ostermillerutils:1.06" level="module">
             <attribute name="method" value="1" />
             <attribute name="URI" value="/WEB-INF/lib/ostermillerutils-1.06.jar" />
           </containerElement>
-          <containerElement type="module" name="nonuselection">
+          <containerElement type="library" name="warp-persist:warp-persist:1.0" level="module">
             <attribute name="method" value="1" />
-            <attribute name="URI" value="/WEB-INF/classes" />
+            <attribute name="URI" value="/WEB-INF/lib/warp-persist-1.0.jar" />
+          </containerElement>
+          <containerElement type="library" name="xpp3:xpp3_min:1.1.4c" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/xpp3_min-1.1.4c.jar" />
+          </containerElement>
+          <containerElement type="library" name="xstream:xstream:1.1.2" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib/xstream-1.1.2.jar" />
           </containerElement>
         </packaging>
       </configuration>
@@ -284,6 +293,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
+      <excludeFolder url="file://$MODULE_DIR$/target/nonuseelection-0.1-SNAPSHOT" />
+      <excludeFolder url="file://$MODULE_DIR$/target/surefire-reports" />
+      <excludeFolder url="file://$MODULE_DIR$/target/war" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

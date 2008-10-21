@@ -14,24 +14,24 @@ import java.sql.Connection;
 
 /**
  * Superclass for unit tests performed outside an EJB container but using an EntityManager
- *
+ * <p/>
  * The EntityManagerFactory is created created prior to executing each fixture in setUp().
  * This creates an empty HSQL database for each fixture.  An EntityManager is also created and
  * a new transaction is started.
  * After each fixture this is all closed in tearDown().
- *
+ * <p/>
  * During setup an EntityManagerFactory is used to create an EM instance and a new transaction is commenced.
  * The same PersistenceUnit must be used for all tests
- *
+ * <p/>
  * Requires JUnit3
- *
+ * <p/>
  * Date Started: 6/06/2007
  * <p/>
  * History:
  * <p/>
  * Copyright (c) 2007 Blue Sky Minds Pty Ltd<br/>
  */
-public class JPATestCase extends TestCase {
+public abstract class JPATestCase extends TestCase {
 
     private static final Log LOG = LogFactory.getLog(JPATestCase.class);
 
@@ -43,17 +43,19 @@ public class JPATestCase extends TestCase {
         env = new JPATestSupport(persistenceUnitName);
     }
 
-     /**
+    /**
      * This method allows properties to be supplied that override the properties defined by the
      * persistence unit
      *
-     * @param persistenceUnitProperties   properties to override the default properties of the persistence unit */
+     * @param persistenceUnitProperties properties to override the default properties of the persistence unit
+     */
     public void setPersistenceUnitProperties(Properties persistenceUnitProperties) {
         env.setPersistenceUnitProperties(persistenceUnitProperties);
     }
 
     /**
      * Creates an EntityManager and starts a transaction
+     *
      * @throws Exception
      */
     protected void setUp() throws Exception {
@@ -75,7 +77,7 @@ public class JPATestCase extends TestCase {
     /**
      * Gets the JDBC connection from the hibernate session underlying the EntityManager.
      * If a hibernate persistence provider is not being used this will fail
-     * */
+     */
     protected Connection getConnection() {
         Session session = (Session) em.getDelegate();
         return session.connection();

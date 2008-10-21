@@ -1,9 +1,10 @@
+/*global YAHOO,blueskyminds,document*/
 (function() {
     var Dom = YAHOO.util.Dom;
     var Event = YAHOO.util.Event;
     var COOKIE_NAME = "voted";
     var SIGNATURE = "sbwm";
-    var ALL_COUNTRIES = "all"
+    var ALL_COUNTRIES = "all";
     var countryNames;
 
     /**
@@ -33,7 +34,7 @@
             blueskyminds.dom.clearHTML(filledBarEl);
             blueskyminds.dom.insertHTML(emptyBarEl, percent);
         }
-    }
+    };
 
     /** Initialise the list of countries */
     var initCountryNames = function() {
@@ -63,7 +64,7 @@
                 result = "???";
             }
         } catch (e) {
-            result = "???"
+            result = "???";
         }
         return result;
     };
@@ -133,13 +134,76 @@
         Dom.setStyle(newResultEl, "display", "block");
     };
 
+    /**
+     * @description center aligns the results within the viewport
+     */
+    var layoutViewport = function() {
+        var RESULT_WIDTH ;
+        if (YAHOO.env.ua.ie) {
+            RESULT_WIDTH = 12 * 13.3333;  // 10 + 2 padding em's
+        } else {
+            RESULT_WIDTH = 12 * 13;  // 10 + 2 padding em's
+        }
+        var viewPortWidth = Dom.getViewportWidth();
+
+        var maxResultsPerLine = (Math.floor(viewPortWidth / RESULT_WIDTH) - 1) || 1;
+        var resultsRequired = (resultCount || 1);
+        var resultsIncluded = 0;
+        var rows = [];
+        var resultsThisLine;
+        var rowNo = 0;
+        // calculate how many results need to be included on each line until all results
+        // are accounted for
+        do {
+            resultsThisLine = Math.min(maxResultsPerLine, resultsRequired - resultsIncluded);
+            if (resultsThisLine > 0) {
+                rows[rowNo] = resultsThisLine;
+                resultsIncluded += resultsThisLine;
+            }
+            rowNo += 1;
+        } while (resultsIncluded < resultsRequired);
+
+
+        // create/delete rows
+        var resultsEl = Dom.get("results");
+        var rowElements = Dom.getElementsByClassName("row", "div", resultsEl);
+        if (rowElements.length > rows.length) {
+            // purge the unnecessary row elements
+            for (rowNo = rows.length; rowNo < rowElements.length; rowNo++) {
+                Event.purgeElement(rowElements[rowNo]);
+                resultsEl.removeChild(rowElements[rowNo]);
+            }
+        } else {
+            // create new row elements
+            if (rowElements.length < rows.length) {
+                for (rowNo = rowElements.length; rowNo < rows.length; rowNo++) {
+                    var newRowEl = document.createElement("div");
+                    newRowEl.setAttribute("id", "row" + rowNo);
+                    newRowEl.setAttribute("class", "row");
+                    resultsEl.appendChild(newRowEl);
+                }
+            }
+        }
+
+        // set the left padding of each row to center it
+        for (rowNo = 0; rowNo < rows.length; rowNo++) {
+            var rowEl = Dom.get("row" + rowNo);
+            Dom.setStyle(rowEl, "margin-left", Math.floor((viewPortWidth / 2 ) - (rows[rowNo] * RESULT_WIDTH / 2)) + "px");
+            if (rowNo === rows.length - 1) {
+                Dom.addClass(rowEl, "last-row");
+            } else {
+                Dom.removeClass(rowEl, "last-row");
+            }
+        }
+    };
+
     var resultCallback = {
         success: function(o) {
             var voteResult;
             try {
                 voteResult = YAHOO.lang.JSON.parse(o.responseText);
-            } catch(e) {
-                blueskyminds.events.fire("error", "The response from the server was invalid.  The data was not valid JSON. Message: " + e.message);
+            } catch(e1) {
+                blueskyminds.events.fire("error", "The response from the server was invalid.  The data was not valid JSON. Message: " + e1.message);
             }
             try {
                 if (YAHOO.lang.isObject(voteResult)) {
@@ -150,8 +214,8 @@
                 } else {
                     blueskyminds.events.fire("error", "The response from the server was invalid.");
                 }
-            } catch(e) {
-                blueskyminds.events.fire("error", "A client-side exception occured while updating the page. Message: " + e.message);
+            } catch(e2) {
+                blueskyminds.events.fire("error", "A client-side exception occured while updating the page. Message: " + e2.message);
             }
         },
         failure: function(o) {
@@ -278,13 +342,13 @@
         var optionEl = document.createElement("option");
         optionEl.value = "";
         optionEl.text = "...";
-
-        if (YAHOO.env.ie) {
+        if (YAHOO.env.ua.ie) {
+            window.status = "here1.1";
             countryEl.add(optionEl);
         } else {
             countryEl.add(optionEl, null);
         }
-
+        window.status = "here1.2";
         var country;
         for (country in countryNames) {
             if (typeof countryNames[country] !== 'function') {
@@ -293,7 +357,7 @@
                     optionEl.value = country;
                     optionEl.text = countryNames[country];
 
-                    if (YAHOO.env.ie) {
+                    if (YAHOO.env.ua.ie) {
                         countryEl.add(optionEl);
                     } else {
                         countryEl.add(optionEl, null);
@@ -309,64 +373,6 @@
             // the marker node tells us we're on the home page
             if (Dom.get("marker")) {
                 showVoteForm();
-            }
-        }
-    };
-
-    /**
-     * @description center aligns the results within the viewport
-     */
-    var layoutViewport = function() {
-        var RESULT_WIDTH = 12 * 13;  // 10 + 2 padding em's
-        var viewPortWidth = Dom.getViewportWidth();
-
-        var maxResultsPerLine = (Math.floor(viewPortWidth / RESULT_WIDTH) - 1) || 1;
-        var resultsRequired = (resultCount || 1);
-        var resultsIncluded = 0;
-        var rows = [];
-        var resultsThisLine;
-        var rowNo = 0;
-        // calculate how many results need to be included on each line until all results
-        // are accounted for
-        do {
-            resultsThisLine = Math.min(maxResultsPerLine, resultsRequired - resultsIncluded);
-            if (resultsThisLine > 0) {
-                rows[rowNo] = resultsThisLine;
-                resultsIncluded += resultsThisLine;
-            }
-            rowNo += 1;
-        } while (resultsIncluded < resultsRequired);
-
-
-        // create/delete rows
-        var resultsEl = Dom.get("results");
-        var rowElements = Dom.getElementsByClassName("row", "div", resultsEl);
-        if (rowElements.length > rows.length) {
-            // purge the unncessary row elements
-            for (rowNo = rows.length; rowNo < rowElements.length; rowNo++) {
-                Event.purgeElement(rowElements[rowNo]);
-                resultsEl.removeChild(rowElements[rowNo]);
-            }
-        } else {
-            // create new row elements
-            if (rowElements.length < rows.length) {
-                for (rowNo = rowElements.length; rowNo < rows.length; rowNo++) {
-                    var newRowEl = document.createElement("div");
-                    newRowEl.setAttribute("id", "row" + rowNo);
-                    newRowEl.setAttribute("class", "row");
-                    resultsEl.appendChild(newRowEl)
-                }
-            }
-        }
-
-        // set the left padding of each row to center it
-        for (rowNo = 0; rowNo < rows.length; rowNo++) {
-            var rowEl = Dom.get("row" + rowNo);
-            Dom.setStyle(rowEl, "margin-left", Math.floor((viewPortWidth / 2 ) - (rows[rowNo] * RESULT_WIDTH / 2)) + "px");
-            if (rowNo === rows.length - 1) {
-                Dom.addClass(rowEl, "last-row");
-            } else {
-                Dom.removeClass(rowEl, "last-row");
             }
         }
     };

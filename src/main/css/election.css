@@ -1,0 +1,193 @@
+body {
+  color: #333;
+}
+
+h1 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 16pt;
+  text-align: center;
+}
+
+h2 {
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+p.intro {
+  text-align: center;
+  font-size: 11pt;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+ol {
+  margin-left: 2em;
+}
+
+ol li {
+  line-height: 1.5em;
+  list-style: decimal outside;
+}
+
+h2.country {
+  height: 3.5em;
+  width: 8em;
+}
+
+h3.voteCount {
+  text-align: center;
+}
+
+#another {
+  text-align: center;
+  margin: 0.5em;
+  height: 2em;
+}
+
+a, a:visited {
+  color: #0088cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#ft div.right {
+  float: right;
+  margin-left: 2em;
+  margin-top: 0.5em;
+  color: #ccc;
+  font-size: 8pt;
+}
+
+div#errors {
+  background-color: pink;
+}
+
+div#results {
+  min-height: 18em;
+}
+
+div.formitem {
+  line-height: 2em;
+}
+
+div.result {
+  border: 1px solid #cccccc;
+  margin: 1em;
+  height: 20em;
+  padding: 0 0 1em 1em;
+  width: 9em;
+  float: left;
+  background-color: #f0f0f0;
+}
+
+div.row {
+  height: 23em;
+  margin-bottom: 1em;
+}
+
+div.democratic,
+  div.republican {
+  float: left;
+  width: 4em;
+}
+
+div.obama {
+  margin: 0 auto;
+  padding-top: 55px;
+  height: 55px;
+  background: black url( "/images/sprites.gif" ) 0px 0px no-repeat;
+}
+
+div.obama span {
+  display: none;
+}
+
+div.mccain {
+  margin: 0 auto;
+  padding-top: 55px;
+  height: 55px;
+  background: black url( "/images/sprites.gif" ) 0px -55px no-repeat;
+}
+
+div.mccain span {
+  display: none;
+}
+
+a.close {
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: url( "/images/sprites.gif" ) 0px -110px no-repeat;
+}
+
+a.close span {
+  display: none;
+}
+
+div.buttons {
+  float: right;
+  height: 16px;
+}
+
+div.bar {
+  width: 4em;
+  float: left;
+  text-align: center;
+  margin-top: 1px;
+}
+
+div.result h2 {
+  margin-top: 16px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+div.filled {
+  color: white;
+}
+
+div.empty {
+  color: black;
+}
+
+div.republican div.filled {
+  background-color: #cc0000;
+}
+
+div.democratic div.filled {
+  background-color: #2864C7;
+}
+
+div.republican div.empty {
+  background-color: #ffe3e3;
+}
+
+div.democratic div.empty {
+  background-color: #e3e3ff;
+}
+
+#voteTemplate {
+  background-color: #f0f0f0;
+  border: 1px solid #cccccc;
+  padding: 1em;
+}
+
+#voteTemplate h2 {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+#voteTemplate input {
+  margin-right: 0.5em;
+}

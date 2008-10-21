@@ -2,24 +2,33 @@
 
   <!-- Copies Javascript files from houspad -->
 
-  <property name="js.src"
-            value="/home/jeromy/projects/src/blueskyminds/src/landmine/housepad/housepad-web/src/main/js"/>
-  <property name="js.target" value="src/main/js"/>
-
-  <property name="target.dir" value="target"/>
-  <property name="statics.dir" value="src/main/www"/>
   <property name="module.name" value="nonuselection"/>
-
-  <property name="js.all" value="nonuselection-all.js"/>
-  <property name="js.production.dir" value="${statics.dir}/js"/>
 
   <property name="js.core" value="blueskyminds-core.js"/>
   <property name="js.dom" value="blueskyminds-dom.js"/>
   <property name="js.events" value="blueskyminds-events.js"/>
   <property name="js.net" value="blueskyminds-net.js"/>
   <property name="js.ui" value="blueskyminds-ui.js"/>
-  <property name="js.layout" value="housepad-ui.js"/>
+  <!--<property name="js.layout" value="housepad-ui.js"/>-->
   <!--<property name="js.tasks" value="tasks.js"/>-->
+
+  <property name="js.src" value="src/main/js"/>
+  <property name="css.src" value="src/main/css"/>
+  <property name="statics.dir" value="src/main/www"/>
+
+  <property name="target.dir" value="target"/>
+
+  <property name="js.all" value="${module.name}-all.js"/>
+  <property name="js.min" value="${module.name}-min.js"/>
+  <property name="js.production.dir" value="${statics.dir}/js"/>
+
+  <property name="css.all" value="${module.name}-all.css"/>
+  <property name="css.min" value="${module.name}-min.css"/>
+  <property name="css.production.dir" value="${statics.dir}/css"/>
+
+  <property name="sync.source.dir"
+            value="/home/jeromy/projects/src/blueskyminds/src/landmine/housepad/housepad-web/src/main/js"/>
+  <property name="sync.target.dir" value="src/main/js"/>
 
   <!-- Macro to make a file read only under windows or unix -->
   <macrodef name="makeReadOnly">
@@ -36,10 +45,9 @@
   <macrodef name="sync">
     <attribute name="file"/>
     <sequential>
-      <copy file="${js.src}/@{file}" todir="${js.target}" preservelastmodified="true" overwrite="true" verbose="true"/>
-      <makeReadOnly file="${js.target}/@{file}"/>
-      <copy file="${js2.src}/@{file}" todir="${js.target}" preservelastmodified="true" overwrite="true" verbose="true"/>
-      <makeReadOnly file="${js.target}/@{file}"/>
+      <copy file="${sync.source.dir}/@{file}" todir="${sync.target.dir}" preservelastmodified="true" overwrite="true"
+            verbose="true"/>
+      <makeReadOnly file="${sync.target.dir}/@{file}"/>
     </sequential>
   </macrodef>
 
@@ -52,26 +60,40 @@
     <!--<sync file="${js.layout}"/>-->
   </target>
 
-  <macrodef name="sync">
-    <attribute name="file"/>
-    <sequential>
-      <copy file="${js.src}/@{file}" todir="${js.target}" preservelastmodified="true" overwrite="true" verbose="true"/>
-      <makeReadOnly file="${js.target}/@{file}"/>
-    </sequential>
-  </macrodef>
-
-  <target name="concat">
-    <concat destfile="${js.production.dir}/${js.all}">
-      <fileset dir="${js.target}"/>
+  <!-- Concatenate all the uncompressed javascript files into one file -->
+  <target name="concat-js">
+    <concat destfile="${js.production.dir}/${js.all}" eol="lf">
+      <fileset dir="${js.src}"/>
     </concat>
   </target>
 
-  <target name="revert">
-    <copy file="${js.src}/@{file}" todir="${js.target}" preservelastmodified="true" overwrite="true" verbose="true"/>
-    <makeReadOnly file="${js.target}/@{file}"/>
+  <!-- Concatenate all the compressed CSS files into one file -->
+  <target name="concat-css" depends="compress-css">
+    <concat destfile="${css.production.dir}/${css.all}" eol="lf" fixlastline="yes">
+      <fileset dir="${css.src}"/>
+    </concat>
   </target>
 
-  <target name="package-statics">
+  <!-- Compress the concatenated JS file -->
+  <target name="compress-js" depends="concat-js">
+    <java jar="yuicompressor-2.3.4.jar" fork="true">
+      <arg line="${js.production.dir}/${js.all} -o ${js.production.dir}/${js.min}"/>
+    </java>
+  </target>
+
+  <!-- Compress individual CSS files -->
+  <target name="compress-css">
+    <java jar="yuicompressor-2.3.4.jar" fork="true">
+      <arg line="${css.src}/election.css -o ${css.production.dir}/${css.min}"/>
+    </java>
+  </target>
+
+  <!--
+  compress the CSS and concatentate the files.
+  concatenate the JS and compress the result
+  package the www directory with the compressed resources into ${target.dir}/${module.name}-static.zip
+  -->
+  <target name="package-statics" depends="concat-css, compress-js">
     <zip destfile="${target.dir}/${module.name}-static.zip" basedir="${statics.dir}" update="true" compress="true"/>
   </target>
 </project>

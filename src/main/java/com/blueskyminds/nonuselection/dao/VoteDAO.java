@@ -28,7 +28,6 @@ public class VoteDAO extends AbstractDAO {
     public static final String ALL_COUNTRIES = "all";
 
 
-
     @Inject
     public VoteDAO(EntityManager entityManager) {
         super(entityManager, VoteResult.class);
@@ -51,12 +50,18 @@ public class VoteDAO extends AbstractDAO {
         return (VoteResult) query.getSingleResult();
     }
 
+    public boolean isNotUS(String country) {
+        return ((!"us".equals(country)) && (!"um".equals(country)));
+    }
+
     public void incDemocraticResult(String country) {
         Query query = em.createNamedQuery(QUERY_INC_DEMOCRATIC_RESULT);
         query.setParameter(PARAM_COUNTRY, country);
         query.executeUpdate();
 
-        incTotalDemocraticResult();
+        if (isNotUS(country)) {
+            incTotalDemocraticResult();
+        }
     }
 
     private void incTotalDemocraticResult() {
@@ -70,7 +75,9 @@ public class VoteDAO extends AbstractDAO {
         query.setParameter(PARAM_COUNTRY, country);
         query.executeUpdate();
 
-        incTotalRepublicanResult();
+        if (isNotUS(country)) {
+            incTotalRepublicanResult();
+        }
     }
 
     private void incTotalRepublicanResult() {
@@ -84,5 +91,5 @@ public class VoteDAO extends AbstractDAO {
         query.setParameter(PARAM_COUNTRY, country);
         return (List<Vote>) query.getResultList();
     }
-    
+
 }
