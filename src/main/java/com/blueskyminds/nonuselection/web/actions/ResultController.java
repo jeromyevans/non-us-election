@@ -40,11 +40,11 @@ public class ResultController extends ActionSupport implements ModelDriven<VoteS
             if (voteResult.getTimestamp() != null) {
                 return new DefaultHttpHeaders("success").withStatus(200).withETag(voteResult.getTimestamp().getTime());
             } else {
-                return new DefaultHttpHeaders("success").withStatus(200);
+                return new DefaultHttpHeaders("success").withStatus(200).disableCaching();
             }
         } else {
             model = new VoteSummary(id, 0, 0, new Date());
-            return new DefaultHttpHeaders("success").withStatus(200);
+            return new DefaultHttpHeaders("success").withStatus(200).disableCaching();
         }
     }
 

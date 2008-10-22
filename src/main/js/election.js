@@ -19,13 +19,19 @@
         var filledHeight = (MAX_EMs * ratio);
         var emptyHeight = (MAX_EMs - filledHeight);
 
-        var percent = ("" + (ratio * 100.00)).substr(0, 6) + "%";
+        var percent = ("" + Math.round(ratio * 100)).substr(0, 4) + "%";
 
         var emptyBarEl = Dom.getElementsByClassName("empty", "div", barEl)[0];
         var filledBarEl = Dom.getElementsByClassName("filled", "div", barEl)[0];
 
-        Dom.setStyle(emptyBarEl, "height", emptyHeight + "em");
-        Dom.setStyle(filledBarEl, "height", filledHeight + "em");
+        if (ratio > 0) {
+            Dom.setStyle(emptyBarEl, "height", emptyHeight + "em");
+            Dom.setStyle(filledBarEl, "height", filledHeight + "em");
+            Dom.setStyle(filledBarEl, "display", "block");
+        } else {
+            Dom.setStyle(emptyBarEl, "height", MAX_EMs + "em");
+            Dom.setStyle(filledBarEl, "display", "none");
+        }
 
         if (filledHeight > 1) {
             blueskyminds.dom.clearHTML(emptyBarEl);
@@ -41,10 +47,12 @@
         var countryLookup = Dom.get("country");
         var option;
         countryNames = {};
-        for (var i = 0; i < countryLookup.options.length; i++) {
-            option = countryLookup.options[i];
-            if (option.value) {
-                countryNames[option.value] = option.text;
+        if (countryLookup) {
+            for (var i = 0; i < countryLookup.options.length; i++) {
+                option = countryLookup.options[i];
+                if (option.value) {
+                    countryNames[option.value] = option.text;
+                }
             }
         }
     };
@@ -86,6 +94,8 @@
                 // recount the result for layout
                 resultCount += 1;
             }
+            // hide it for now: we don't want to count it in the layout
+            Dom.setStyle(newResultEl, "display", "none");
         } else {
             var templateEl = Dom.get("resultTemplate");
             newResultEl = templateEl.cloneNode(true);
@@ -132,6 +142,7 @@
         var lastRowEl = Dom.getElementsByClassName("last-row", "div", Dom.get("results"))[0];
         lastRowEl.appendChild(newResultEl);
         Dom.setStyle(newResultEl, "display", "block");
+        resultCount += 1;
     };
 
     /**
@@ -164,9 +175,35 @@
         } while (resultsIncluded < resultsRequired);
 
 
-        // create/delete rows
+        resultCount = 0;
+        // create/delete rows and move results up to the previous row if necessaru
         var resultsEl = Dom.get("results");
         var rowElements = Dom.getElementsByClassName("row", "div", resultsEl);
+        var resultElements;
+        var gap = 0;
+        for (rowNo = 0; rowNo < rowElements.length; rowNo++) {
+            var visibleResults = [];
+            resultElements = Dom.getElementsByClassName("result", "div", rowElements[rowNo], function(el) {
+                if (Dom.getStyle(el, "display") !== "none") {
+                    visibleResults.push(el);
+                }
+            });
+
+            resultCount += visibleResults.length;
+
+            if (gap > 0) {
+                // move results to the previous row
+                var resultNo;
+                for (resultNo = 0; resultNo < gap; resultNo++) {
+                    rowElements[rowNo - 1].appendChild(resultElements[resultNo]);
+                }
+            } else {
+                if (visibleResults.length < rows[rowNo]) {
+                    gap = rows[rowNo] - visibleResults.length;
+                }
+            }
+        }
+
         if (rowElements.length > rows.length) {
             // purge the unnecessary row elements
             for (rowNo = rows.length; rowNo < rowElements.length; rowNo++) {
@@ -220,7 +257,8 @@
         },
         failure: function(o) {
             blueskyminds.events.fire("error", "An error occurred communicating with the server: " + blueskyminds.net.errorMessage(o));
-        }
+        },
+        cache: false
     };
 
     var loadResults = function(country) {
@@ -273,13 +311,14 @@
             Connect.resetFormState();
             formEl.action = "vote.json";
             Connect.setForm(formEl);
-            // setup a header header for future http requests that includes the token
+            // setup a header for future http requests that includes the token
             Connect.initHeader("X-AuthToken", SIGNATURE, true);
             Connect.asyncRequest('POST', "vote.json", {
                 success: voteCallback.success,
                 failure: voteCallback.failure,
                 scope: formEl.country.value
             });
+            return true;
         }
     };
 
@@ -339,28 +378,28 @@
         initCountryNames();
         var countryEl = Dom.get("voteCountry");
 
-        var optionEl = document.createElement("option");
-        optionEl.value = "";
-        optionEl.text = "...";
-        if (YAHOO.env.ua.ie) {
-            window.status = "here1.1";
-            countryEl.add(optionEl);
-        } else {
-            countryEl.add(optionEl, null);
-        }
-        window.status = "here1.2";
-        var country;
-        for (country in countryNames) {
-            if (typeof countryNames[country] !== 'function') {
-                if (country !== ALL_COUNTRIES) {
-                    optionEl = document.createElement("option");
-                    optionEl.value = country;
-                    optionEl.text = countryNames[country];
+        if (countryEl) {
+            var optionEl = document.createElement("option");
+            optionEl.value = "";
+            optionEl.text = "...";
+            if (YAHOO.env.ua.ie) {
+                countryEl.add(optionEl);
+            } else {
+                countryEl.add(optionEl, null);
+            }
+            var country;
+            for (country in countryNames) {
+                if (typeof countryNames[country] !== 'function') {
+                    if (country !== ALL_COUNTRIES) {
+                        optionEl = document.createElement("option");
+                        optionEl.value = country;
+                        optionEl.text = countryNames[country];
 
-                    if (YAHOO.env.ua.ie) {
-                        countryEl.add(optionEl);
-                    } else {
-                        countryEl.add(optionEl, null);
+                        if (YAHOO.env.ua.ie) {
+                            countryEl.add(optionEl);
+                        } else {
+                            countryEl.add(optionEl, null);
+                        }
                     }
                 }
             }

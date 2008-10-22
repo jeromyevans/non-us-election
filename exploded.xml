@@ -8,6 +8,9 @@ An ant script for deploying static files to the exploded directory at run-time
   <property name="js.src.dir" value="src/main/js"/>
   <property name="js.target.dir" value="${exploded.dir}/js"/>
 
+  <property name="css.src.dir" value="src/main/www/css"/>
+  <property name="css.target.dir" value="${exploded.dir}/css"/>
+
   <property name="jsp.src.dir" value="src/main/webapp"/>
   <property name="jsp.target.dir" value="${exploded.dir}/"/>
 
@@ -17,6 +20,16 @@ An ant script for deploying static files to the exploded directory at run-time
     <copy todir="${js.target.dir}" overwrite="true">
       <fileset dir="${js.src.dir}/">
         <include name="*.js"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="update-css">
+
+    <!-- Install into exploded now -->
+    <copy todir="${css.target.dir}" overwrite="true">
+      <fileset dir="${css.src.dir}/">
+        <include name="*.css"/>
       </fileset>
     </copy>
   </target>

@@ -83,6 +83,8 @@ div.formitem {
 div.result {
   border: 1px solid #cccccc;
   margin: 1em;
+  min-height: 20em;
+  height: auto !important;
   height: 20em;
   padding: 0 0 1em 1em;
   width: 9em;
@@ -91,21 +93,27 @@ div.result {
 }
 
 div.row {
+  min-height: 23em;
+  height: auto !important;
   height: 23em;
   margin-bottom: 1em;
 }
 
-div.democratic,
-  div.republican {
+div.democratic {
   float: left;
-  width: 4em;
+  width: 50px;
+  background: black url( "/images/sprites.gif" ) 0px 0px no-repeat;
+  padding-top: 55px;
+}
+
+div.republican {
+  float: left;
+  width: 50px;
+  background: black url( "/images/sprites.gif" ) 0px -55px no-repeat;
+  padding-top: 55px;
 }
 
 div.obama {
-  margin: 0 auto;
-  padding-top: 55px;
-  height: 55px;
-  background: black url( "/images/sprites.gif" ) 0px 0px no-repeat;
 }
 
 div.obama span {
@@ -113,10 +121,6 @@ div.obama span {
 }
 
 div.mccain {
-  margin: 0 auto;
-  padding-top: 55px;
-  height: 55px;
-  background: black url( "/images/sprites.gif" ) 0px -55px no-repeat;
 }
 
 div.mccain span {
@@ -140,10 +144,9 @@ div.buttons {
 }
 
 div.bar {
-  width: 4em;
+  width: 50px;
   float: left;
   text-align: center;
-  margin-top: 1px;
 }
 
 div.result h2 {
