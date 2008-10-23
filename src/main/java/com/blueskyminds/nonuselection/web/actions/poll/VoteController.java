@@ -1,4 +1,4 @@
-package com.blueskyminds.nonuselection.web.actions;
+package com.blueskyminds.nonuselection.web.actions.poll;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.blueskyminds.nonuselection.model.VoteType;
@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletRequest;
  * Copyright (c) 2008 Blue Sky Minds Pty Ltd
  */
 @Results({
-        @Result(name="success", type= HttpHeaderResult.class, value = "200"),
-        @Result(name="error", type= HttpHeaderResult.class, value = "400")
+    @Result(name = "success", type = HttpHeaderResult.class, value = "200"),
+    @Result(name = "error", type = HttpHeaderResult.class, value = "400")
         })
 public class VoteController extends ActionSupport implements ServletRequestAware {
 

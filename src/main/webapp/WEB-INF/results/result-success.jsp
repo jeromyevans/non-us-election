@@ -1,8 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html><!-- InstanceBegin template="/Templates/defaultJSPPage.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
   <!-- InstanceBeginEditable name="doctitle" -->
-  <title>The US Presidential Election Poll for the Rest of the World: Bad Request</title>
+  <title>The US Presidential Election Poll for the Rest of the World: Result</title>
   <!-- InstanceEndEditable -->
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
   <meta name="Keywords" content="US Election">
@@ -24,12 +26,20 @@
   </div>
   <div id="bd">
     <!-- InstanceBeginEditable name="bd" -->
-    <h1>Bad Request</h1>
+    <h1><s:property value="countryName"/> Poll Result</h1>
 
-    <p>An error occured on the server while trying to process your request.</p>
-    <ul>
-      <li><a href="/index.html">Click here to return home</a></li>
-    </ul>
+    <table>
+      <tr>
+        <th scope="row">Democratic Party (Barak Obama)</th>
+        <td><s:property value="democratic"/></td>
+      </tr>
+      <tr>
+        <th scope="row">Republican Party (John McCain)</th>
+        <td><s:property value="republican"/></td>
+      </tr>
+    </table>
+
+
     <!-- InstanceEndEditable -->
   </div>
   <div id="ft">

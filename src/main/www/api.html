@@ -29,14 +29,19 @@
 
     <h2>Results for a single country (json)</h2>
 <pre>
-  /result/{country}.json
-  eg. GET /result/au.json
+  /poll/result/{country}.json
+  eg. GET /poll/result/au.json
 </pre>
-    <p>The structure of the result is <a href="/result/all.json" title="view a JSON result">self-explanatory</a>.</p>
+    <p>The structure of the result is <a href="/poll/result/all.json" title="view a JSON result">self-explanatory</a>.
+    </p>
 
     <h1>Voting API</h1>
 
     <p>A vote can be cast using a POST (application/x-www-form-urlencoded) to the following path:</p>
+
+    <pre>
+      POST /poll/vote
+    </pre>
 
     <table>
       <thead>
@@ -72,7 +77,7 @@
   </div>
   <div id="ft">
     <div id="voteTemplate" class="commands" style="display:none">
-      <form id="voteForm" action="vote">
+      <form id="voteForm" action="/poll/vote">
         <h2>Cast a vote in this poll</h2>
 
         <div class="formitem">

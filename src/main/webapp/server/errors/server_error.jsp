@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html><!-- InstanceBegin template="../../../www/Templates/defaultPage.dwt" codeOutsideHTMLIsLocked="false" -->
+<html><!-- InstanceBegin template="/Templates/defaultJSPPage.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
   <!-- InstanceBeginEditable name="doctitle" -->
   <title>The US Presidential Election Poll for the Rest of the World: Server Error</title>
@@ -34,7 +34,7 @@
   </div>
   <div id="ft">
     <div id="voteTemplate" class="commands" style="display:none">
-      <form id="voteForm" action="vote">
+      <form id="voteForm" action="/poll/vote">
         <h2>Cast a vote in this poll</h2>
 
         <div class="formitem">

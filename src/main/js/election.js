@@ -273,9 +273,9 @@
 
     var loadResults = function(country) {
         if (country) {
-            YAHOO.util.Connect.asyncRequest('GET', "result/" + country + ".json", resultCallback);
+            YAHOO.util.Connect.asyncRequest('GET', "poll/result/" + country + ".json", resultCallback);
         } else {
-            YAHOO.util.Connect.asyncRequest('GET', "result.json", resultCallback);
+            YAHOO.util.Connect.asyncRequest('GET', "poll/result.json", resultCallback);
         }
     };
 
@@ -319,11 +319,11 @@
         invoke : function(event, target, formEl) {
             var Connect = YAHOO.util.Connect;
             Connect.resetFormState();
-            formEl.action = "vote.json";
+            formEl.action = "poll/vote";
             Connect.setForm(formEl);
             // setup a header for future http requests that includes the token
             Connect.initHeader("X-AuthToken", SIGNATURE, true);
-            Connect.asyncRequest('POST', "vote.json", {
+            Connect.asyncRequest('POST', "poll/vote", {
                 success: voteCallback.success,
                 failure: voteCallback.failure,
                 scope: formEl.country.value

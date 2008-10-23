@@ -23,17 +23,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nonuselection.iws" afterPath="$PROJECT_DIR$/nonuselection.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/server/errors/server_error.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/server/errors/server_error.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/server/errors/forbidden.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/server/errors/forbidden.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/server/errors/page_not_found.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/server/errors/page_not_found.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/poll" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/Templates" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/result-success.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/disclaimer.html" afterPath="$PROJECT_DIR$/src/main/www/disclaimer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/index.html" afterPath="$PROJECT_DIR$/src/main/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/errors.html" afterPath="$PROJECT_DIR$/src/main/www/errors.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/Templates/defaultPage.dwt" afterPath="$PROJECT_DIR$/src/main/www/Templates/defaultPage.dwt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/api.html" afterPath="$PROJECT_DIR$/src/main/www/api.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/server/errors/bad_request.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/server/errors/bad_request.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/model/Countries.java" afterPath="$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/model/Countries.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/js/election.js" afterPath="$PROJECT_DIR$/src/main/js/election.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nonuselection.iws" afterPath="$PROJECT_DIR$/nonuselection.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/server/errors/forbidden.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/server/errors/forbidden.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/js/nonuselection-all.js" afterPath="$PROJECT_DIR$/src/main/www/js/nonuselection-all.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/js/nonuselection-min.js" afterPath="$PROJECT_DIR$/src/main/www/js/nonuselection-min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/Templates/defaultPage.dwt" afterPath="$PROJECT_DIR$/src/main/www/Templates/defaultPage.dwt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/unavailable.html" afterPath="$PROJECT_DIR$/src/main/www/unavailable.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/ResultController.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/struts.xml" afterPath="$PROJECT_DIR$/src/main/resources/struts.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/VoteController-conversion.properties" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/server/errors/server_error.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/server/errors/server_error.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/poll/VoteController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/index.html" afterPath="$PROJECT_DIR$/src/main/www/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/poll/ResultController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/Templates/defaultJSPPage.dwt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/poll/VoteController-conversion.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/css/nonuselection-min.css" afterPath="$PROJECT_DIR$/src/main/www/css/nonuselection-min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/server/errors/page_not_found.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/server/errors/page_not_found.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/www/errors.html" afterPath="$PROJECT_DIR$/src/main/www/errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/VoteController.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/server/errors/bad_request.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/server/errors/bad_request.jsp" />
     </list>
     <ignored path="nonuselection.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,7 +70,7 @@
   </component>
   <component name="DebuggerManager">
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/VoteController.java" line="44" class="com.blueskyminds.nonuselection.web.actions.VoteController" package="com.blueskyminds.nonuselection.web.actions">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/poll/VoteController.java" line="44" class="com.blueskyminds.nonuselection.web.actions.poll.VoteController" package="com.blueskyminds.nonuselection.web.actions.poll">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -66,7 +83,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/ResultController.java" line="31" class="com.blueskyminds.nonuselection.web.actions.ResultController" package="com.blueskyminds.nonuselection.web.actions">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/poll/ResultController.java" line="34" class="com.blueskyminds.nonuselection.web.actions.poll.ResultController" package="com.blueskyminds.nonuselection.web.actions.poll">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -79,7 +96,20 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/dao/VoteDAO.java" line="42" class="com.blueskyminds.nonuselection.dao.VoteDAO" package="com.blueskyminds.nonuselection.dao">
+      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-rest-plugin/2.1.3-SNAPSHOT/struts2-rest-plugin-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/rest/RestActionInvocation.java" line="125" class="org.apache.struts2.rest.RestActionInvocation" package="org.apache.struts2.rest">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-rest-plugin/2.1.3-SNAPSHOT/struts2-rest-plugin-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/rest/DefaultContentTypeHandlerManager.java" line="159" class="org.apache.struts2.rest.DefaultContentTypeHandlerManager" package="org.apache.struts2.rest">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -137,19 +167,82 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="VoteService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/service/VoteService.java">
+      <file leaf-file-name="ResultController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/poll/ResultController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="281" selection-end="281" vertical-scroll-proportion="0.28546712">
+            <state line="28" column="33" selection-start="961" selection-end="961" vertical-scroll-proportion="0.30635118">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VoteServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/service/VoteServiceImpl.java">
+      <file leaf-file-name="RestActionInvocation.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-rest-plugin/2.1.3-SNAPSHOT/struts2-rest-plugin-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/rest/RestActionInvocation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="31" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.6366782">
+            <state line="120" column="0" selection-start="4827" selection-end="4827" vertical-scroll-proportion="0.5621827">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultActionInvocation.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/opensymphony/xwork/2.1.2-SNAPSHOT/xwork-2.1.2-SNAPSHOT-sources.jar!/com/opensymphony/xwork2/DefaultActionInvocation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="353" column="0" selection-start="12739" selection-end="12739" vertical-scroll-proportion="0.20431472">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StrutsResultSupport.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.1.3-SNAPSHOT/struts2-core-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/dispatcher/StrutsResultSupport.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="185" column="0" selection-start="6471" selection-end="6471" vertical-scroll-proportion="0.20431472">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServletDispatcherResult.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.1.3-SNAPSHOT/struts2-core-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/dispatcher/ServletDispatcherResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="158" column="50" selection-start="6123" selection-end="6123" vertical-scroll-proportion="0.84771574">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result-success.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/results/result-success.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="20" selection-start="682" selection-end="682" vertical-scroll-proportion="0.21456437">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObjectFactory.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/opensymphony/xwork/2.1.2-SNAPSHOT/xwork-2.1.2-SNAPSHOT-sources.jar!/com/opensymphony/xwork2/ObjectFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="225" column="0" selection-start="9360" selection-end="9360" vertical-scroll-proportion="0.48604062">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultContentTypeHandlerManager.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-rest-plugin/2.1.3-SNAPSHOT/struts2-rest-plugin-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/rest/DefaultContentTypeHandlerManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="177" column="0" selection-start="7139" selection-end="7139" vertical-scroll-proportion="0.5241117">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HtmlHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-rest-plugin/2.1.3-SNAPSHOT/struts2-rest-plugin-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/rest/handler/HtmlHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="0" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.2241594">
               <folding />
             </state>
           </provider>
@@ -158,70 +251,7 @@
       <file leaf-file-name="VoteDAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/dao/VoteDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="5" selection-start="1829" selection-end="1829" vertical-scroll-proportion="0.5034602">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/www/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="10" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.22058824">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="election.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/js/election.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="9" selection-start="5155" selection-end="5155" vertical-scroll-proportion="1.0501859">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="election.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/css/election.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="18" selection-start="112" selection-end="112" vertical-scroll-proportion="0.20761245">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/www/api.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="18" selection-start="1032" selection-end="1032" vertical-scroll-proportion="0.3345588">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="disclaimer.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/www/disclaimer.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="7" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.4209559">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nonuselection-all.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/www/js/nonuselection-all.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="31" selection-start="548" selection-end="548" vertical-scroll-proportion="0.5328597">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bad_request.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/server/errors/bad_request.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="33" selection-start="2136" selection-end="2136" vertical-scroll-proportion="0.6415441">
+            <state line="42" column="0" selection-start="1339" selection-end="1339" vertical-scroll-proportion="0.20672478">
               <folding />
             </state>
           </provider>
@@ -582,6 +612,70 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/webapp/WEB-INF" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/webapp/WEB-INF/results" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="nonuselection" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="nonuselection" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/webapp" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/webapp/Templates" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="nonuselection" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="nonuselection" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/webapp" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/webapp/server" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
@@ -686,150 +780,6 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources/schema/nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources/schema/nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources/schema/nonuselection/1" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources/schema/nonuselection/1/mysql5" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources/schema/nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources/schema/nonuselection/1" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources/schema/nonuselection/1/innodb" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources/schema/nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources/schema/nonuselection/1" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/resources/schema/nonuselection/1/hsql" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/js" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
@@ -864,7 +814,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/java/com/blueskyminds/nonuselection/web/actions" />
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/java/com/blueskyminds/nonuselection/web/actions/poll" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -929,6 +879,40 @@
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/java/com/blueskyminds/nonuselection" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="nonuselection" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="nonuselection" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/java/com/blueskyminds/nonuselection" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:/home/jeromy/projects/src/blueskyminds/src/nonuselection/src/main/java/com/blueskyminds/nonuselection/model" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -1287,7 +1271,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34859154" order="3" />
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25586855" order="8" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25586855" order="8" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="0" />
@@ -1313,7 +1297,7 @@
     <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated footer template" />
+    <option name="LAST_COMMIT_MESSAGE" value="switched to min js" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
@@ -1333,6 +1317,7 @@
     <MESSAGE value="almost ready for release" />
     <MESSAGE value="added aggregate files" />
     <MESSAGE value="updated footer template" />
+    <MESSAGE value="switched to min js" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1355,114 +1340,114 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/schema/nonuselection/1/hsql/hibernate_baseline.txt">
+    <entry file="file://$PROJECT_DIR$/src/main/www/Templates/defaultPage.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="6" selection-start="1023" selection-end="1098" vertical-scroll-proportion="0.7741935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/Templates/defaultJSPPage.dwt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="52" selection-start="1481" selection-end="1481" vertical-scroll-proportion="0.6215054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/poll/VoteController-conversion.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/schema/nonuselection/1/hsql/initResults.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/js/election.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="78" selection-start="78" selection-end="156" vertical-scroll-proportion="0.029126214">
+        <state line="236" column="29" selection-start="8652" selection-end="8652" vertical-scroll-proportion="0.6053719">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/schema/nonuselection/1/innodb/initResults.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/www/css/nonuselection-min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="78" selection-start="156" selection-end="156" vertical-scroll-proportion="0.029126214">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/schema/nonuselection/1/mysql5/initResults.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/www/css/nonuselection-all.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="19" selection-start="1100" selection-end="1100" vertical-scroll-proportion="0.407767">
+        <state line="18" column="35" selection-start="216" selection-end="216" vertical-scroll-proportion="0.54108214">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/model/Countries.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/poll/ResultController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="19" selection-start="294" selection-end="294" vertical-scroll-proportion="0.37864077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/web/actions/VoteController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="42" selection-start="1628" selection-end="1628" vertical-scroll-proportion="0.71453285">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/service/VoteService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="281" selection-end="281" vertical-scroll-proportion="0.28546712">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/service/VoteServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="31" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.6366782">
+        <state line="28" column="33" selection-start="961" selection-end="961" vertical-scroll-proportion="0.30635118">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/blueskyminds/nonuselection/dao/VoteDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="5" selection-start="1829" selection-end="1829" vertical-scroll-proportion="0.5034602">
+        <state line="42" column="0" selection-start="1339" selection-end="1339" vertical-scroll-proportion="0.20672478">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/www/index.html">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-rest-plugin/2.1.3-SNAPSHOT/struts2-rest-plugin-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/rest/handler/HtmlHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="10" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.22058824">
+        <state line="33" column="0" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.2241594">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/js/election.js">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-rest-plugin/2.1.3-SNAPSHOT/struts2-rest-plugin-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/rest/DefaultContentTypeHandlerManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="9" selection-start="5155" selection-end="5155" vertical-scroll-proportion="1.0501859">
+        <state line="177" column="0" selection-start="7139" selection-end="7139" vertical-scroll-proportion="0.5241117">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/css/election.css">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/opensymphony/xwork/2.1.2-SNAPSHOT/xwork-2.1.2-SNAPSHOT-sources.jar!/com/opensymphony/xwork2/ObjectFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="112" selection-end="112" vertical-scroll-proportion="0.20761245">
+        <state line="225" column="0" selection-start="9360" selection-end="9360" vertical-scroll-proportion="0.48604062">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/www/api.html">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-rest-plugin/2.1.3-SNAPSHOT/struts2-rest-plugin-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/rest/RestActionInvocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="18" selection-start="1032" selection-end="1032" vertical-scroll-proportion="0.3345588">
+        <state line="120" column="0" selection-start="4827" selection-end="4827" vertical-scroll-proportion="0.5621827">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/www/disclaimer.html">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/opensymphony/xwork/2.1.2-SNAPSHOT/xwork-2.1.2-SNAPSHOT-sources.jar!/com/opensymphony/xwork2/DefaultActionInvocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="7" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.4209559">
+        <state line="353" column="0" selection-start="12739" selection-end="12739" vertical-scroll-proportion="0.20431472">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/www/js/nonuselection-all.js">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.1.3-SNAPSHOT/struts2-core-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/dispatcher/StrutsResultSupport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="31" selection-start="548" selection-end="548" vertical-scroll-proportion="0.5328597">
+        <state line="185" column="0" selection-start="6471" selection-end="6471" vertical-scroll-proportion="0.20431472">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/server/errors/bad_request.jsp">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.1.3-SNAPSHOT/struts2-core-2.1.3-SNAPSHOT-sources.jar!/org/apache/struts2/dispatcher/ServletDispatcherResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="33" selection-start="2136" selection-end="2136" vertical-scroll-proportion="0.6415441">
+        <state line="158" column="50" selection-start="6123" selection-end="6123" vertical-scroll-proportion="0.84771574">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/results/result-success.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="20" selection-start="682" selection-end="682" vertical-scroll-proportion="0.21456437">
           <folding />
         </state>
       </provider>

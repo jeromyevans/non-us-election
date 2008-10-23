@@ -6,9 +6,9 @@
   <!--<constant name="struts.configuration.classpath.disableActionScanning" value="true"/>-->
 
   <constant name="struts.codebehind.defaultPackage" value="nonUSelection-default"/>
-  <constant name="struts.configuration.classpath.defaultParentPackage" value="nonUSelection-default" />
+  <constant name="struts.configuration.classpath.defaultParentPackage" value="nonUSelection-default"/>
   <!-- location in the webapp/classpath of default results -->
-  <constant name="struts.codebehind.pathPrefix" value="/results/"/>
+  <constant name="struts.codebehind.pathPrefix" value="/WEB-INF/results/"/>
 
   <constant name="struts.objectFactory" value="guice"/>
   <constant name="guice.module" value="com.blueskyminds.nonuselection.startup.GuiceModule"/>
@@ -18,7 +18,7 @@
   <constant name="struts.ui.theme" value="basic"/>
 
   <constant name="struts.action.extension" value=",,xhtml,xml,json"/>
-  <constant name="struts.rest.defaultHandlerName" value="json"/>
+  <constant name="struts.rest.defaultHandlerName" value="xhtml"/>
 
   <constant name="struts.custom.i18n.resources" value="i18n"/>
   <constant name="struts.i18n.reload" value="false"/>
@@ -29,40 +29,40 @@
     <interceptors>
 
       <interceptor-stack name="nonUSElectionDefaultStack">
-          <interceptor-ref name="exception">
-            <param name="logEnabled">true</param>
-            <param name="logLevel">error</param>
-          </interceptor-ref>
+        <interceptor-ref name="exception">
+          <param name="logEnabled">true</param>
+          <param name="logLevel">error</param>
+        </interceptor-ref>
 
-          <interceptor-ref name="alias"/>
-          <interceptor-ref name="servletConfig"/>
-          <interceptor-ref name="messages">
-              <param name="operationMode">AUTOMATIC</param>
-          </interceptor-ref>
-          <interceptor-ref name="prepare"/>
-          <interceptor-ref name="i18n"/>
-          <interceptor-ref name="chain"/>
-          <interceptor-ref name="debugging"/>
-          <interceptor-ref name="profiling"/>
-          <interceptor-ref name="params"/>
-          <interceptor-ref name="scopedModelDriven"/>
-          <interceptor-ref name="modelDriven">
-              <param name="refreshModelBeforeResult">true</param>
-          </interceptor-ref>
-          <interceptor-ref name="fileUpload"/>
-          <interceptor-ref name="checkbox"/>
-          <interceptor-ref name="staticParams"/>
-          <interceptor-ref name="actionMappingParams">
-            <param name="excludeParams">dojo\..*,^_.*</param>
-          </interceptor-ref>
-          <interceptor-ref name="rest" />
-          <interceptor-ref name="conversionError"/>
-          <interceptor-ref name="validation">
-              <param name="excludeMethods">input,back,cancel,browse,index,show,edit,editNew</param>
-          </interceptor-ref>
-          <interceptor-ref name="restWorkflow">
-              <param name="excludeMethods">input,back,cancel,browse,index,show,edit,editNew</param>
-          </interceptor-ref>
+        <interceptor-ref name="alias"/>
+        <interceptor-ref name="servletConfig"/>
+        <interceptor-ref name="messages">
+          <param name="operationMode">AUTOMATIC</param>
+        </interceptor-ref>
+        <interceptor-ref name="prepare"/>
+        <interceptor-ref name="i18n"/>
+        <interceptor-ref name="chain"/>
+        <interceptor-ref name="debugging"/>
+        <interceptor-ref name="profiling"/>
+        <interceptor-ref name="params"/>
+        <interceptor-ref name="scopedModelDriven"/>
+        <interceptor-ref name="modelDriven">
+          <param name="refreshModelBeforeResult">true</param>
+        </interceptor-ref>
+        <interceptor-ref name="fileUpload"/>
+        <interceptor-ref name="checkbox"/>
+        <interceptor-ref name="staticParams"/>
+        <interceptor-ref name="actionMappingParams">
+          <param name="excludeParams">dojo\..*,^_.*</param>
+        </interceptor-ref>
+        <interceptor-ref name="rest"/>
+        <interceptor-ref name="conversionError"/>
+        <interceptor-ref name="validation">
+          <param name="excludeMethods">input,back,cancel,browse,index,show,edit,editNew</param>
+        </interceptor-ref>
+        <interceptor-ref name="restWorkflow">
+          <param name="excludeMethods">input,back,cancel,browse,index,show,edit,editNew</param>
+        </interceptor-ref>
       </interceptor-stack>
 
     </interceptors>

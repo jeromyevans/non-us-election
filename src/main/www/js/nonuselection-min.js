@@ -1202,9 +1202,9 @@ blueskyminds.ui.commands = function() {
     },cache:false};
     var Y = function(b) {
         if (b) {
-            YAHOO.util.Connect.asyncRequest("GET", "result/" + b + ".json", Z)
+            YAHOO.util.Connect.asyncRequest("GET", "poll/result/" + b + ".json", Z)
         } else {
-            YAHOO.util.Connect.asyncRequest("GET", "result.json", Z)
+            YAHOO.util.Connect.asyncRequest("GET", "poll/result.json", Z)
         }
     };
     var E = {invoke:function(c, d, b) {
@@ -1233,10 +1233,10 @@ blueskyminds.ui.commands = function() {
     var O = {invoke:function(d, e, c) {
         var b = YAHOO.util.Connect;
         b.resetFormState();
-        c.action = "vote.json";
+        c.action = "poll/vote";
         b.setForm(c);
         b.initHeader("X-AuthToken", D, true);
-        b.asyncRequest("POST", "vote.json", {success:U.success,failure:U.failure,scope:c.country.value});
+        b.asyncRequest("POST", "poll/vote", {success:U.success,failure:U.failure,scope:c.country.value});
         return true
     }};
     var A = function(g) {

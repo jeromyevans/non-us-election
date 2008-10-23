@@ -1,13 +1,15 @@
-package com.blueskyminds.nonuselection.web.actions;
+package com.blueskyminds.nonuselection.web.actions.poll;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.blueskyminds.nonuselection.service.VoteService;
 import com.blueskyminds.nonuselection.model.VoteResult;
 import com.blueskyminds.nonuselection.model.VoteSummary;
+import com.blueskyminds.nonuselection.model.Countries;
 import com.google.inject.Inject;
 import org.apache.struts2.rest.HttpHeaders;
 import org.apache.struts2.rest.DefaultHttpHeaders;
+import org.apache.struts2.config.Result;
 
 import java.util.Date;
 
@@ -18,6 +20,7 @@ import java.util.Date;
  * <p/>
  * Copyright (c) 2008 Blue Sky Minds Pty Ltd
  */
+@Result(name = "success", value = "/WEB-INF/results/result-success.jsp")
 public class ResultController extends ActionSupport implements ModelDriven<VoteSummary> {
 
     private VoteService voteService;
@@ -50,6 +53,14 @@ public class ResultController extends ActionSupport implements ModelDriven<VoteS
 
     public VoteSummary getModel() {
         return model;
+    }
+
+    public String countryName() {
+        if (model != null) {
+            return Countries.getName(model.getCountry());
+        } else {
+            return null;
+        }
     }
 
     @Inject
