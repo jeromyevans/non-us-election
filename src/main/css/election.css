@@ -6,7 +6,7 @@ h1 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   font-size: 16pt;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
@@ -15,11 +15,21 @@ h2 {
   margin-bottom: 0.5em;
 }
 
+th {
+  font-weight: bold;
+  padding: 0.5em;
+}
+
 p.intro {
   text-align: center;
   font-size: 11pt;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+p.timestamp {
+  text-align: center;
+  font-size: 10pt;
 }
 
 p {
@@ -64,7 +74,7 @@ a:hover {
   float: right;
   margin-left: 2em;
   margin-top: 0.5em;
-  color: #ccc;
+  color: #999;
   font-size: 8pt;
 }
 

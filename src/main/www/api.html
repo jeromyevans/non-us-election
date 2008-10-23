@@ -25,13 +25,39 @@
     <!-- InstanceBeginEditable name="bd" -->
     <h1>Results API</h1>
 
-    <p>The results are available at the following paths:</p>
+    <p>The results are available at the following path:</p>
 
     <h2>Results for a single country (json)</h2>
 <pre>
-  /results/{country}.json
-  eg. /results/au.json
+  /result/{country}.json
+  eg. GET /result/au.json
 </pre>
+    <p>The structure of the result is <a href="/result/all.json" title="view a JSON result">self-explanatory</a>.</p>
+
+    <h1>Voting API</h1>
+
+    <p>A vote can be cast using a POST (application/x-www-form-urlencoded) to the following path:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>country</td>
+          <td>IS0 3166 country code (lowercase) eg. au</td>
+        </tr>
+        <tr>
+          <td>party</td>
+          <td>Republican | Democratic</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>An HTTP status code 200 indicates a successful vote. Use country=test for testing.</p>
 
     <p>Country codes are in accordance with <a
             href="http://www.iso.org/iso/country_codes/iso_3166_code_lists/english_country_names_and_code_elements.htm"
@@ -39,7 +65,7 @@
       excluding US" use "all".</p>
 
     <p>Contact <a href="http://www.blueskyminds.com.au/">Blue Sky Minds</a> to include a reference to your widget on
-      this site.</p>
+      this site or to suggest improvements to this API.</p>
 
     <p>Back to <a href="/index.html">the results</a>.</p>
     <!-- InstanceEndEditable -->
@@ -69,22 +95,15 @@
         <input id="voteSubmit" class="command" type="submit" name="_submit" value="Count my Vote" disabled="disabled"/>
       </form>
     </div>
-    <div class="right"><a href="disclaimer.html" title="View Disclaimer and Privacy Policy">Disclaimer and Privacy</a> |
-      <a href="api.html" title="Get the results yourself">Results API</a> | <a class="right"
-                                                                               href="http://www.blueskyminds.com.au/">Blue
-      Sky Minds</a></div>
+    <div class="right">Build a better widget > <a href="api.html" title="Get the results yourself">Voting API &amp;
+      Results API</a> | <a href="disclaimer.html" title="View Disclaimer and Privacy Policy">Disclaimer and Privacy</a>
+      | <a class="right" href="http://www.blueskyminds.com.au/">Blue Sky Minds</a></div>
   </div>
 </div>
 
-<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/utilities/utilities.js"></script>
-<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/json/json-min.js"></script>
-<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/cookie/cookie-min.js"></script>
-<script type="text/javascript" src="/js/blueskyminds-core.js"></script>
-<script type="text/javascript" src="/js/blueskyminds-dom.js"></script>
-<script type="text/javascript" src="/js/blueskyminds-events.js"></script>
-<script type="text/javascript" src="/js/blueskyminds-net.js"></script>
-<script type="text/javascript" src="/js/blueskyminds-ui.js"></script>
-<script type="text/javascript" src="/js/election.js"></script>
+<script type="text/javascript"
+        src="http://yui.yahooapis.com/combo?2.6.0/build/utilities/utilities.js&2.6.0/build/cookie/cookie-min.js&2.6.0/build/json/json-min.js"></script>
+<script type="text/javascript" src="/js/nonuselection-all.js"></script>
 
 </body>
 <!-- InstanceEnd --></html>

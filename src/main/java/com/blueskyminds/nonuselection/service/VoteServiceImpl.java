@@ -39,6 +39,8 @@ public class VoteServiceImpl implements VoteService {
         }
     }
 
+    @Transactional
+    // this shouldn't be necessary: we want en EM, not a transaction, but without it some EMs are reused
     public VoteResult lookupResult(String country) {
         if (StringUtils.isNotBlank(country)) {
             return voteDAO.lookupResult(country);
@@ -47,6 +49,7 @@ public class VoteServiceImpl implements VoteService {
         }
     }
 
+    @Transactional
     public VoteResult lookupResult() {
         return lookupResult(null);
     }

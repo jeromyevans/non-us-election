@@ -11,6 +11,7 @@ public class Countries {
 
     private static final String[] countyCodes = {
             "all",
+            "test",
             "af",
             "ax",
             "al",

@@ -1,7 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html><!-- InstanceBegin template="/Templates/defaultPage.dwt" codeOutsideHTMLIsLocked="false" -->
+<html><!-- InstanceBegin template="../../../www/Templates/defaultPage.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
   <!-- InstanceBeginEditable name="doctitle" -->
+  <title>The US Presidential Election Poll for the Rest of the World: Server Error</title>
   <!-- InstanceEndEditable -->
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
   <meta name="Keywords" content="US Election">
@@ -23,25 +24,12 @@
   </div>
   <div id="bd">
     <!-- InstanceBeginEditable name="bd" -->
-    <h1>Disclaimer</h1>
-    <ol>
-      <li>Minimal effort have been made to detect duplicate votes. Suspected duplicate votes may be deleted.</li>
-      <li>No effort has been made to verify the location of voters.</li>
-      <li>This website is not associated with any US political party.</li>
-    </ol>
-    <h1>Privacy</h1>
-    <ol>
-      <li>No personal information is collected by this website.</li>
-      <li>The IP address of the request is recorded with each vote.</li>
-      <li>A cookie is stored on your computer to help prevent duplicate votes.</li>
-      <li>Aggregated results are available to the public through this website and API. Individual vote data (excluding
-        the IP
-        Address) may be released to the public and/or other parties.
-      </li>
-    </ol>
-    <p>For more information contact <a href="http://www.blueskyminds.com.au">Blue Sky Minds</a>.</p>
+    <h1>Server Error</h1>
 
-    <p>Back to <a href="/index.html">the results</a>.</p>
+    <p>An error occured on the server while trying to process your request.</p>
+    <ul>
+      <li><a href="/index.html">Click here to return home</a></li>
+    </ul>
     <!-- InstanceEndEditable -->
   </div>
   <div id="ft">
@@ -69,15 +57,15 @@
         <input id="voteSubmit" class="command" type="submit" name="_submit" value="Count my Vote" disabled="disabled"/>
       </form>
     </div>
-    <div class="right">Build a better widget > <a href="api.html" title="Get the results yourself">Voting API &amp;
-      Results API</a> | <a href="disclaimer.html" title="View Disclaimer and Privacy Policy">Disclaimer and Privacy</a>
-      | <a class="right" href="http://www.blueskyminds.com.au/">Blue Sky Minds</a></div>
+    <div class="right"><a href="api.html" title="Get the results yourself">Results API</a> | <a href="disclaimer.html"
+                                                                                                title="View Disclaimer and Privacy Policy">Disclaimer
+      and Privacy</a> | <a class="right" href="http://www.blueskyminds.com.au/">Blue Sky Minds</a></div>
   </div>
 </div>
 
 <script type="text/javascript"
         src="http://yui.yahooapis.com/combo?2.6.0/build/utilities/utilities.js&2.6.0/build/cookie/cookie-min.js&2.6.0/build/json/json-min.js"></script>
-<script type="text/javascript" src="/js/nonuselection-all.js"></script>
+<script type="text/javascript" src="/js/nonuselection-min.js"></script>
 
 </body>
 <!-- InstanceEnd --></html>

@@ -1,4 +1,5 @@
 insert into VoteResult(country, democratic, republican) values ('all', 0, 0);
+insert into VoteResult(country, democratic, republican) values ('test', 0, 0);
 insert into VoteResult(country, democratic, republican) values ('af', 0, 0);
 insert into VoteResult(country, democratic, republican) values ('ax', 0, 0);
 insert into VoteResult(country, democratic, republican) values ('al', 0, 0);

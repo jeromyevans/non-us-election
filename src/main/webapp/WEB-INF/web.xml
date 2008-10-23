@@ -45,4 +45,24 @@
   <security-role>
     <role-name>authAdmin</role-name>
   </security-role>
+
+  <error-page>
+    <error-code>400</error-code>
+    <location>/server/errors/bad_request.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/server/errors/forbidden.jsp</location>
+  </error-page>
+
+  <error-page>
+    <error-code>404</error-code>
+    <location>/server/errors/page_not_found.jsp</location>
+  </error-page>
+
+  <error-page>
+    <error-code>500</error-code>
+    <location>/server/errors/server_error.jsp</location>
+  </error-page>
+
 </web-app>

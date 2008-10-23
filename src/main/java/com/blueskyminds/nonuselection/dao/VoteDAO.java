@@ -51,7 +51,7 @@ public class VoteDAO extends AbstractDAO {
     }
 
     public boolean isNotUS(String country) {
-        return ((!"us".equals(country)) && (!"um".equals(country)));
+        return ((!"us".equals(country)) && (!"um".equals(country)) && (!"test".equals(country)));
     }
 
     public void incDemocraticResult(String country) {

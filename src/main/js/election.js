@@ -98,13 +98,17 @@
             Dom.setStyle(newResultEl, "display", "none");
         } else {
             var templateEl = Dom.get("resultTemplate");
-            newResultEl = templateEl.cloneNode(true);
+            if (templateEl) {
+                newResultEl = templateEl.cloneNode(true);
 
-            // count the additional result for layout
-            resultCount += 1;
+                // count the additional result for layout
+                resultCount += 1;
+            }
         }
 
-        newResultEl.setAttribute("id", id);
+        if (newResultEl) {
+            newResultEl.setAttribute("id", id);
+        }
 
         return newResultEl;
     };
@@ -114,122 +118,128 @@
      */
     var renderResult = function(voteResult, newResultEl) {
 
-        var totalVotes = voteResult.democratic + voteResult.republican;
-        var d;
-        var r;
-        if (totalVotes > 0) {
-            d = Math.round(voteResult.democratic / totalVotes * 100) / 100;
-            r = Math.round((1 - d) * 100) / 100;
-        } else {
-            d = 0;
-            r = 0;
+        var resultsEl = Dom.get("results");
+        if (resultsEl) {
+            var totalVotes = voteResult.democratic + voteResult.republican;
+            var d;
+            var r;
+            if (totalVotes > 0) {
+                d = Math.round(voteResult.democratic / totalVotes * 100) / 100;
+                r = Math.round((1 - d) * 100) / 100;
+            } else {
+                d = 0;
+                r = 0;
+            }
+
+            var democraticBar = Dom.getElementsByClassName("democraticBar", "div", newResultEl)[0];
+            renderBar(democraticBar, d);
+
+            var republicanBar = Dom.getElementsByClassName("republicanBar", "div", newResultEl)[0];
+            renderBar(republicanBar, r);
+
+            var countryName = lookupCountryName(voteResult.country);
+
+            var title = Dom.getElementsByClassName("country", "h2", newResultEl)[0];
+            blueskyminds.dom.insertHTML(title, countryName);
+            var voteCount = Dom.getElementsByClassName("voteCount", "h3", newResultEl)[0];
+            blueskyminds.dom.insertHTML(voteCount, "(" + totalVotes + " votes)");
+
+            // insert/move into the last row
+            var lastRowEl = Dom.getElementsByClassName("last-row", "div", resultsEl)[0];
+            lastRowEl.appendChild(newResultEl);
+            Dom.setStyle(newResultEl, "display", "block");
+            resultCount += 1;
         }
-
-        var democraticBar = Dom.getElementsByClassName("democraticBar", "div", newResultEl)[0];
-        renderBar(democraticBar, d);
-
-        var republicanBar = Dom.getElementsByClassName("republicanBar", "div", newResultEl)[0];
-        renderBar(republicanBar, r);
-
-        var countryName = lookupCountryName(voteResult.country);
-
-        var title = Dom.getElementsByClassName("country", "h2", newResultEl)[0];
-        blueskyminds.dom.insertHTML(title, countryName);
-        var voteCount = Dom.getElementsByClassName("voteCount", "h3", newResultEl)[0];
-        blueskyminds.dom.insertHTML(voteCount, "(" + totalVotes + " votes)");
-
-        // insert/move into the last row
-        var lastRowEl = Dom.getElementsByClassName("last-row", "div", Dom.get("results"))[0];
-        lastRowEl.appendChild(newResultEl);
-        Dom.setStyle(newResultEl, "display", "block");
-        resultCount += 1;
     };
 
     /**
      * @description center aligns the results within the viewport
      */
     var layoutViewport = function() {
-        var RESULT_WIDTH ;
-        if (YAHOO.env.ua.ie) {
-            RESULT_WIDTH = 12 * 13.3333;  // 10 + 2 padding em's
-        } else {
-            RESULT_WIDTH = 12 * 13;  // 10 + 2 padding em's
-        }
-        var viewPortWidth = Dom.getViewportWidth();
-
-        var maxResultsPerLine = (Math.floor(viewPortWidth / RESULT_WIDTH) - 1) || 1;
-        var resultsRequired = (resultCount || 1);
-        var resultsIncluded = 0;
-        var rows = [];
-        var resultsThisLine;
-        var rowNo = 0;
-        // calculate how many results need to be included on each line until all results
-        // are accounted for
-        do {
-            resultsThisLine = Math.min(maxResultsPerLine, resultsRequired - resultsIncluded);
-            if (resultsThisLine > 0) {
-                rows[rowNo] = resultsThisLine;
-                resultsIncluded += resultsThisLine;
-            }
-            rowNo += 1;
-        } while (resultsIncluded < resultsRequired);
-
-
-        resultCount = 0;
-        // create/delete rows and move results up to the previous row if necessaru
         var resultsEl = Dom.get("results");
-        var rowElements = Dom.getElementsByClassName("row", "div", resultsEl);
-        var resultElements;
-        var gap = 0;
-        for (rowNo = 0; rowNo < rowElements.length; rowNo++) {
-            var visibleResults = [];
-            resultElements = Dom.getElementsByClassName("result", "div", rowElements[rowNo], function(el) {
-                if (Dom.getStyle(el, "display") !== "none") {
-                    visibleResults.push(el);
+        if (resultsEl) {
+            var RESULT_WIDTH;
+            if (YAHOO.env.ua.ie) {
+                RESULT_WIDTH = 12 * 13.3333;  // 10 + 2 padding em's
+            } else {
+                RESULT_WIDTH = 12 * 13;  // 10 + 2 padding em's
+            }
+            var viewPortWidth = Dom.getViewportWidth();
+
+            var maxResultsPerLine = (Math.floor(viewPortWidth / RESULT_WIDTH) - 1) || 1;
+            var resultsRequired = (resultCount || 1);
+            var resultsIncluded = 0;
+            var rows = [];
+            var resultsThisLine;
+            var rowNo = 0;
+            // calculate how many results need to be included on each line until all results
+            // are accounted for
+            do {
+                resultsThisLine = Math.min(maxResultsPerLine, resultsRequired - resultsIncluded);
+                if (resultsThisLine > 0) {
+                    rows[rowNo] = resultsThisLine;
+                    resultsIncluded += resultsThisLine;
                 }
-            });
+                rowNo += 1;
+            } while (resultsIncluded < resultsRequired);
 
-            resultCount += visibleResults.length;
 
-            if (gap > 0) {
-                // move results to the previous row
-                var resultNo;
-                for (resultNo = 0; resultNo < gap; resultNo++) {
-                    rowElements[rowNo - 1].appendChild(resultElements[resultNo]);
+            resultCount = 0;
+            // create/delete rows and move results up to the previous row if necessaru
+
+            var rowElements = Dom.getElementsByClassName("row", "div", resultsEl);
+            var resultElements;
+            var gap = 0;
+            for (rowNo = 0; rowNo < rowElements.length; rowNo++) {
+                var visibleResults = [];
+                resultElements = Dom.getElementsByClassName("result", "div", rowElements[rowNo], function(el) {
+                    if (Dom.getStyle(el, "display") !== "none") {
+                        visibleResults.push(el);
+                    }
+                });
+
+                resultCount += visibleResults.length;
+
+                if (gap > 0) {
+                    // move results to the previous row
+                    var resultNo;
+                    for (resultNo = 0; resultNo < gap; resultNo++) {
+                        rowElements[rowNo - 1].appendChild(resultElements[resultNo]);
+                    }
+                } else {
+                    if (visibleResults.length < rows[rowNo]) {
+                        gap = rows[rowNo] - visibleResults.length;
+                    }
+                }
+            }
+
+            if (rowElements.length > rows.length) {
+                // purge the unnecessary row elements
+                for (rowNo = rows.length; rowNo < rowElements.length; rowNo++) {
+                    Event.purgeElement(rowElements[rowNo]);
+                    resultsEl.removeChild(rowElements[rowNo]);
                 }
             } else {
-                if (visibleResults.length < rows[rowNo]) {
-                    gap = rows[rowNo] - visibleResults.length;
+                // create new row elements
+                if (rowElements.length < rows.length) {
+                    for (rowNo = rowElements.length; rowNo < rows.length; rowNo++) {
+                        var newRowEl = document.createElement("div");
+                        newRowEl.setAttribute("id", "row" + rowNo);
+                        newRowEl.setAttribute("class", "row");
+                        resultsEl.appendChild(newRowEl);
+                    }
                 }
             }
-        }
 
-        if (rowElements.length > rows.length) {
-            // purge the unnecessary row elements
-            for (rowNo = rows.length; rowNo < rowElements.length; rowNo++) {
-                Event.purgeElement(rowElements[rowNo]);
-                resultsEl.removeChild(rowElements[rowNo]);
-            }
-        } else {
-            // create new row elements
-            if (rowElements.length < rows.length) {
-                for (rowNo = rowElements.length; rowNo < rows.length; rowNo++) {
-                    var newRowEl = document.createElement("div");
-                    newRowEl.setAttribute("id", "row" + rowNo);
-                    newRowEl.setAttribute("class", "row");
-                    resultsEl.appendChild(newRowEl);
+            // set the left padding of each row to center it
+            for (rowNo = 0; rowNo < rows.length; rowNo++) {
+                var rowEl = Dom.get("row" + rowNo);
+                Dom.setStyle(rowEl, "margin-left", Math.floor((viewPortWidth / 2 ) - (rows[rowNo] * RESULT_WIDTH / 2)) + "px");
+                if (rowNo === rows.length - 1) {
+                    Dom.addClass(rowEl, "last-row");
+                } else {
+                    Dom.removeClass(rowEl, "last-row");
                 }
-            }
-        }
-
-        // set the left padding of each row to center it
-        for (rowNo = 0; rowNo < rows.length; rowNo++) {
-            var rowEl = Dom.get("row" + rowNo);
-            Dom.setStyle(rowEl, "margin-left", Math.floor((viewPortWidth / 2 ) - (rows[rowNo] * RESULT_WIDTH / 2)) + "px");
-            if (rowNo === rows.length - 1) {
-                Dom.addClass(rowEl, "last-row");
-            } else {
-                Dom.removeClass(rowEl, "last-row");
             }
         }
     };
@@ -359,6 +369,10 @@
         }
     };
 
+    var onResizeListener = function(e) {
+        layoutViewport();
+    };
+
     var setupListeners = function() {
         blueskyminds.ui.forms.registerHandlerForForm("resultForm", resultFormHandler);
         Event.addListener("firstVote", "change", voteFormListener);
@@ -368,6 +382,7 @@
         blueskyminds.ui.commands.registerCommand(closeResultCommand);
         blueskyminds.ui.commands.init("bd");
         blueskyminds.ui.commands.init("ft");
+        Event.addListener(window, 'resize', onResizeListener);
     };
 
     /**
