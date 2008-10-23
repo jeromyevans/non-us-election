@@ -1,0 +1,200 @@
+body {
+  color: #333;
+}
+
+h1 {
+  margin-top: .5em;
+  margin-bottom: .5em;
+  font-size: 16pt;
+  text-align: left;
+}
+
+h2 {
+  font-weight: bold;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+th {
+  font-weight: bold;
+  padding: .5em;
+}
+
+p.intro {
+  text-align: center;
+  font-size: 11pt;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+p.timestamp {
+  text-align: center;
+  font-size: 10pt;
+}
+
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+ol {
+  margin-left: 2em;
+}
+
+ol li {
+  line-height: 1.5em;
+  list-style: decimal outside;
+}
+
+h2.country {
+  height: 3.5em;
+  width: 8em;
+}
+
+h3.voteCount {
+  text-align: center;
+}
+
+#another {
+  text-align: center;
+  margin: .5em;
+  height: 2em;
+}
+
+a, a:visited {
+  color: #08c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#ft div.right {
+  float: right;
+  margin-left: 2em;
+  margin-top: .5em;
+  color: #999;
+  font-size: 8pt;
+}
+
+div#errors {
+  background-color: pink;
+}
+
+div#results {
+  min-height: 18em;
+}
+
+div.formitem {
+  line-height: 2em;
+}
+
+div.result {
+  border: 1px solid #ccc;
+  margin: 1em;
+  min-height: 20em;
+  height: auto !important;
+  height: 20em;
+  padding: 0 0 1em 1em;
+  width: 9em;
+  float: left;
+  background-color: #f0f0f0;
+}
+
+div.row {
+  min-height: 23em;
+  height: auto !important;
+  height: 23em;
+  margin-bottom: 1em;
+}
+
+div.democratic {
+  float: left;
+  width: 50px;
+  background: black url( "/images/sprites.gif" ) 0 0 no-repeat;
+  padding-top: 55px;
+}
+
+div.republican {
+  float: left;
+  width: 50px;
+  background: black url( "/images/sprites.gif" ) 0 -55px no-repeat;
+  padding-top: 55px;
+}
+
+div.obama span {
+  display: none;
+}
+
+div.mccain span {
+  display: none;
+}
+
+a.close {
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: url( "/images/sprites.gif" ) 0 -110px no-repeat;
+}
+
+a.close span {
+  display: none;
+}
+
+div.buttons {
+  float: right;
+  height: 16px;
+}
+
+div.bar {
+  width: 50px;
+  float: left;
+  text-align: center;
+}
+
+div.result h2 {
+  margin-top: 16px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+div.filled {
+  color: white;
+}
+
+div.empty {
+  color: black;
+}
+
+div.republican div.filled {
+  background-color: #c00;
+}
+
+div.democratic div.filled {
+  background-color: #2864C7;
+}
+
+div.republican div.empty {
+  background-color: #ffe3e3;
+}
+
+div.democratic div.empty {
+  background-color: #e3e3ff;
+}
+
+#voteTemplate {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 1em;
+}
+
+#voteTemplate h2 {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+#voteTemplate input {
+  margin-right: .5em;
+}
