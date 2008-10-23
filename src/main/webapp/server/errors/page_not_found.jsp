@@ -57,9 +57,9 @@
         <input id="voteSubmit" class="command" type="submit" name="_submit" value="Count my Vote" disabled="disabled"/>
       </form>
     </div>
-    <div class="right"><a href="api.html" title="Get the results yourself">Results API</a> | <a href="disclaimer.html"
-                                                                                                title="View Disclaimer and Privacy Policy">Disclaimer
-      and Privacy</a> | <a class="right" href="http://www.blueskyminds.com.au/">Blue Sky Minds</a></div>
+    <div class="right">Build a better widget > <a href="api.html" title="Get the results yourself">Voting API &amp;
+      Results API</a> | <a href="disclaimer.html" title="View Disclaimer and Privacy Policy">Disclaimer and Privacy</a>
+      | <a class="right" href="http://www.blueskyminds.com.au/">Blue Sky Minds</a></div>
   </div>
 </div>
 

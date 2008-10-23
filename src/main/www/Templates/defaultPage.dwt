@@ -51,9 +51,9 @@
    	  <div class="right">Build a better widget > <a href="api.html" title="Get the results yourself">Voting API &amp; Results API</a> | <a href="disclaimer.html" title="View Disclaimer and Privacy Policy">Disclaimer and Privacy</a> | <a class="right" href="http://www.blueskyminds.com.au/">Blue Sky Minds</a></div>
     </div>
   </div>
-  
+ 
   <script type="text/javascript" src="http://yui.yahooapis.com/combo?2.6.0/build/utilities/utilities.js&2.6.0/build/cookie/cookie-min.js&2.6.0/build/json/json-min.js"></script> 
-  <script type="text/javascript" src="/js/nonuselection-all.js"></script>
+  <script type="text/javascript" src="/js/nonuselection-min.js"></script>
  
 </body>
 </html>
